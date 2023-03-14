@@ -2,15 +2,34 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
+
+
 function Navbar() {
+
+    // const isLoggedIn = useSelector(selectIsLoggedIn);
+    // const userAccount = useSelector(selectUserAccount);
+    // const dispatch = useDispatch();
+    
+    // const accountLogOut = async () => {
+    //   await fetch("/logout")
+    //       .then(response => response.json())
+    //       .then((json) => {
+    //           if(json.isLoggedIn) {
+    //               console.log("Still logged in");
+    //           } else {
+    //               dispatch(logOut());
+    //           }
+    //       });
+    // }
+
   return (
     <div className="navWrapper">
         <ul>
           <li>
-            <NavLink><a to="/Profile">Profile</a></NavLink> 
+            <NavLink to="/profile"><a >Profile</a></NavLink> 
           </li>
           <li>
-            <NavLink><a to="" >Items for Trade</a></NavLink>
+            <NavLink  to="" ><a  >Items for Trade</a></NavLink>
           </li>    
       
           <li className="dropdown" >    
@@ -24,6 +43,7 @@ function Navbar() {
               <a>Toys and Games</a>
             </div>
           </li>
+        
         </ul>
     </div>
   );
