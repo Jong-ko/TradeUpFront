@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  
+}
+
+body {
+  text-align: center;
 }
 
 .App-logo {
@@ -11,6 +16,11 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.login-box {
+  display: flex;
+  justify-content: center;
 }
 
 .App-header {
