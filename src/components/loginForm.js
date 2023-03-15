@@ -54,7 +54,7 @@ export const Login = () => {
                         <button className="babble-btn btn1 mx-3" type="submit">Login</button>
                     </div>
                 </form>
-                    <span className="handwriting-text folder-label" onClick={() => navigate("/create-account")} >Don't have an account? Create an account now</span>
+                    <span className="handwriting-text folder-label" onClick={() => navigate("/profile")} >Don't have an account? Create an account now</span>
                     <p><span className={errorVisible + " handwriting-text"}>Invalid username or password</span></p>
                 </div>
         )

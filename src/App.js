@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Login} from './components/LoginForm';
+import {Login} from './components/loginForm';
 import {CreateAccount} from "./components/CreateAccount";
-import {Protected} from "./components/Protected"
+import {Protected} from "./components/Protected";
 import { selectIsLoggedIn, logOut, selectUserAccount } from './features/swapSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import "./App.css";

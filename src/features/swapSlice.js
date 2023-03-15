@@ -17,7 +17,7 @@ export const swapSlice = createSlice({
             state.myItems = action.payload
         },
         deleteSwapById: (state, action) => {
-            state.myItems = state.myswaps.filter(swaps => swaps.id !== action.payload)
+            state.myItems = state.swaps.filter(swaps => swaps.id !== action.payload)
         },
         setUserAccount: (state, action) => {
             state.userAccount = action.payload
