@@ -1,56 +1,54 @@
-import React, { useEffect }from "react";
+import React, { useEffect } from "react";
 import DisplayItem from "./DisplayItem";
-import { useSelector, useDispatch } from 'react-redux'
-import ImageUploadForm from "./ImageUploadForm";
-import { selectAllItems, setSwaps, deleteSwapById } from "../features/swapSlice";
-
-
-
+import { useSelector, useDispatch } from "react-redux";
+import NewItemForm from "./NewItemForm";
+import Navbar from "./Navbar";
+import {
+  selectAllItems,
+  setSwaps,
+  deleteSwapById,
+} from "../features/swapSlice";
 
 function UserPage() {
+  const myItems = useSelector(selectAllItems);
+  console.log(myItems);
+  const dispatch = useDispatch();
 
-    const myItems = useSelector(selectAllItems)
-    const dispatch = useDispatch(); 
+  const removeItemById = async (id, e) => {
+    await fetch(`/delete-item/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        window.location.reload();
+        dispatch(deleteSwapById(id));
+      });
+  };
 
+  const fetchListItems = async () => {
+    await fetch("/list-items")
+      .then((response) => response.json())
+      .then((json) => dispatch(setSwaps(json)));
+  };
 
-
-    const removeItemById = async (id, e) => {
-        await fetch(`/delete-item/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            window.location.reload();
-            dispatch(deleteSwapById(id));
-            
-        })
-    }
-
- const fetchListItems = async () => {
-        await fetch("/list-items")
-            .then(response => response.json())
-            .then(json => dispatch(setSwaps(json)));
-    }    
-
-    useEffect(() => {
-        fetchListItems();
-    }, [])
+  useEffect(() => {
+    fetchListItems();
+  }, []);
 
   return (
-    <div className="UserPage">   
-
-    <ImageUploadForm/>
-    <div>
-       {myItems.map(swap =>
-    <DisplayItem removeItemById={removeItemById} swap={swap} fetchListItems={fetchListItems} />
-       )}  
-    </div>
-   
+    <div className="UserPage">
+      <Navbar />
+      <NewItemForm />
+      <div>
+        {myItems.map((swap) => (
+          <DisplayItem removeItemById={removeItemById} swap={swap} />
+        ))}
+      </div>
     </div>
   );
 }

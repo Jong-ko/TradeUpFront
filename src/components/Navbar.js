@@ -1,7 +1,7 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-
+import { selectAllItems, selectUserAccount } from "../features/swapSlice";
 
 
 function Navbar() {
@@ -22,9 +22,13 @@ function Navbar() {
     //       });
     // }
 
+    const userAccount = useSelector(selectUserAccount);
+    console.log(userAccount)
+
   return (
     <div className="navWrapper">
         <ul>
+           
           <li>
             <NavLink to="/profile"><a >Profile</a></NavLink> 
           </li>
@@ -43,7 +47,10 @@ function Navbar() {
               <a>Toys and Games</a>
             </div>
           </li>
-        
+       
+         <li style={{float:"right"}} >
+                <NavLink to="/"><a>Logout</a></NavLink>
+            </li>
         </ul>
     </div>
   );
