@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 import { addSwaps } from "../features/swapSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function NewItemForm() {
   const dispatch = useDispatch();
 
-  const [selectedImage, setSelectedImage] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  // const userAccount = useSelector((state) => state.userAccount.userAccount); //importing data
 
-  const newImage = async (e) => {
+  // console.log(userAccount);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  // const [description, setDescription] = useState("");
+  // const [category, setCategory] = useState("");
+  const [item, setItem] = useState({ description: "", category: "" });
+
+  const newImage = async (e, id) => {
     e.preventDefault();
-    await fetch("/new-item", {
+    await fetch(`/new-item/:${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        email: email,
       },
-      body: JSON.stringify({
-        image: selectedImage,
-        description: description,
-        category: category,
-      }),
+      body: JSON.stringify(item),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
         dispatch(addSwaps(data));
         setSelectedImage("");
-        setDescription("");
-        setCategory("");
+        setItem("");
       })
       .catch((error) => console.log("Unable to add post", error));
   };
@@ -38,12 +39,8 @@ function NewItemForm() {
       <h1>Swap your way up!</h1>
 
       <form
-        onChange={(event) => {
-          event.preventDefault();
-
-          console.log(event.target.value);
-          setCategory(event.target.value);
-        }}
+        value={item.category}
+        onChange={(e) => setItem({ ...item, category: e.target.value })}
       >
         <label for="cars">Choose a Category:</label>
         <select id="browsers">
@@ -64,11 +61,8 @@ function NewItemForm() {
         type="text"
         name="swapDescription"
         placeholder="Description of Item"
-        onChange={(event) => {
-          event.preventDefault();
-          console.log(event.target.value);
-          setDescription(event.target.value);
-        }}
+        value={item.description}
+        onChange={(e) => setItem({ ...item, description: e.target.value })}
       />
 
       <div>

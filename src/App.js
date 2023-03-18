@@ -3,11 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Login } from './components/loginForm';
 import { CreateAccount } from './components/CreateAccount';
 import { Protected } from './components/Protected';
-import {
-  selectIsLoggedIn,
-  logOut,
-  selectUserAccount,
-} from './features/swapSlice';
+import { selectIsLoggedIn, selectUserAccount } from './features/swapSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import UserPage from './components/userPage';
@@ -16,18 +12,6 @@ function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userAccount = useSelector(selectUserAccount);
   const dispatch = useDispatch();
-
-  const accountLogOut = async () => {
-    await fetch('/logout')
-      .then((response) => response.json())
-      .then((json) => {
-        if (json.isLoggedIn) {
-          console.log('Still logged in');
-        } else {
-          dispatch(logOut());
-        }
-      });
-  };
 
   return (
     <div className="App">
