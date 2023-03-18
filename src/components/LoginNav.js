@@ -17,7 +17,7 @@ function LoginNav() {
           </NavLink>
         </li>
 
-        <li className="dropdown">
+        {/* <li className="dropdown">
           <a className="dropbtn" style={{ padding: "16px" }}>
             Categories
           </a>
@@ -41,7 +41,7 @@ function LoginNav() {
             <div>Toys and Games</div>
             </NavLink>
           </div>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
