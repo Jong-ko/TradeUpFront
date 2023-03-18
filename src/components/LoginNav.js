@@ -1,12 +1,8 @@
 import React from "react";
 
-
 import { NavLink } from "react-router-dom";
 
 function LoginNav() {
-
-
-
   return (
     <div className="navWrapper">
       <ul>
@@ -26,12 +22,24 @@ function LoginNav() {
             Categories
           </a>
           <div className="dropdown-content">
-            <a>Clothing and Accessories</a>
-            <a>Electronics and Gadgets</a>
-            <a>Home and Furniture</a>
-            <a>Health and Beauty</a>
-            <a>Sports and Outdoors</a>
-            <a>Toys and Games</a>
+            <NavLink to="/BrowseClothingandAccessories">
+              <div>Clothing and Accessories</div>
+            </NavLink>
+            <NavLink to="/BrowseElectronicsandGadgets">
+            <div>Electronics and Gadgets</div>
+            </NavLink>
+            <NavLink to="/BrowseHomeandFurniture">
+            <div>Home and Furniture</div>
+            </NavLink>
+            <NavLink to="/BrowseHealthandBeauty">
+            <div>Health and Beauty</div>
+            </NavLink>
+            <NavLink to="/BrowseSportsandOutdoors">
+            <div>Sports and Outdoors</div>
+            </NavLink>
+            <NavLink to="/BrowseToysandGames">
+            <div>Toys and Games</div>
+            </NavLink>
           </div>
         </li>
       </ul>

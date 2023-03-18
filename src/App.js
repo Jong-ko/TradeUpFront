@@ -1,16 +1,17 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Login } from './components/loginForm';
-import { CreateAccount } from './components/CreateAccount';
-import { Protected } from './components/Protected';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./components/loginForm";
+import { CreateAccount } from "./components/CreateAccount";
+import { Protected } from "./components/Protected";
 import {
   selectIsLoggedIn,
   logOut,
   selectUserAccount,
-} from './features/swapSlice';
-import { useSelector, useDispatch } from 'react-redux';
-import './App.css';
-import UserPage from './components/userPage';
+} from "./features/swapSlice";
+import { useSelector, useDispatch } from "react-redux";
+import "./App.css";
+import UserPage from "./components/userPage";
+import ItemBrowsePage from "./components/itemBrowsePage";
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -18,11 +19,11 @@ function App() {
   const dispatch = useDispatch();
 
   const accountLogOut = async () => {
-    await fetch('/logout')
+    await fetch("/logout")
       .then((response) => response.json())
       .then((json) => {
         if (json.isLoggedIn) {
-          console.log('Still logged in');
+          console.log("Still logged in");
         } else {
           dispatch(logOut());
         }
@@ -49,6 +50,14 @@ function App() {
                 />
                 <Route path="/" element={<Login />} />
                 <Route path="/create-account" element={<CreateAccount />} />
+                {/* START Route For Item Browsing */}
+                <Route path="/BrowseClothingandAccessories" element={<ItemBrowsePage catagory={"Clothing and Accessories"}/>} />
+                <Route path="/BrowseElectronicsandGadgets" element={<ItemBrowsePage catagory={"Electronics and Gadgets"}/>} />
+                <Route path="/BrowseHomeandFurniture" element={<ItemBrowsePage catagory={"Home and Furniture"}/>} />
+                <Route path="/BrowseHealthandBeauty" element={<ItemBrowsePage catagory={"Health and Beauty"}/>} />
+                <Route path="/BrowseSportsandOutdoors" element={<ItemBrowsePage catagory={"Sports and Outdoors"}/>} />
+                <Route path="/BrowseToysandGames" element={<ItemBrowsePage catagory={"Toys and Games"}/>} />
+                {/* END Route For Item Browsing */}
               </Routes>
             </div>
           </div>

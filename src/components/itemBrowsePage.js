@@ -1,40 +1,49 @@
-import React, { useEffect } from "react";
-import ItemThumb from "./Itemthumb";
+import React, { useEffect, useState } from "react";
+import ItemCard from "./ItemCard";
+import LoginNav from "./LoginNav";
+import axios from "axios"
+import { json } from "react-router-dom";
 
-// const url = getItemRoute.com
+const url = "/fetchCatagory/"
 
-const itemList = [
-  "item one",
-  "item two",
-  "item three",
-  "item four",
-  "item five",
-];
+// const itemList = [
+//   "item one",
+//   "item two",
+//   "item three",
+//   "item four",
+//   "item five",
+// ];
 
-function ItemBrowsePage() {
+function ItemBrowsePage(props) {
+  const [itemList, setItemList] = useState([])
   const itemArray = itemList.map((list) => {
+    // console.log(list.id)
     return (
-      <>
-        <ItemThumb itemInfo={list} />
-      </>
+      <React.Fragment key={list.id}>
+        <ItemCard itemInfo={list} key={list.id} />
+      </React.Fragment >
     );
   });
 
-//   useEffect(() => {
-//     fetchItems();
-//   });
+  useEffect(() => {
+    fetchItems();
+  },[props]);
 
-//   const fetchItems = () => {
-//     axios
-//       .get(url)
-//       .then((response) => {
-//         const itemList = response.data;
-//         setDestinationList(allPosts);
-//       })
-//       .catch((error) => console.error(error));
-//   };
+  const fetchItems = () => {
+    axios
+      .get(url+props.catagory)
+      .then((response) => {
+        const fetchedItems = response.data;
+        setItemList(fetchedItems);
+      })
+      .catch((error) => console.error(error));
+  };
 
-  return <>{itemArray}</>;
+  return <>
+  <LoginNav />
+  <div>{props.catagory}</div>
+  <>{itemArray}</>
+  </>;
 }
 
 export default ItemBrowsePage;
