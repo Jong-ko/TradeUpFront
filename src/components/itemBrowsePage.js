@@ -26,10 +26,13 @@ function ItemBrowsePage(props) {
     );
   });
 
+
+//trigger fetch items when page catagory(store in props) change
   useEffect(() => {
     fetchItems();
   },[props]);
 
+  //fetch items with catagory parameter
   const fetchItems = () => {
     axios
       .get(url+props.catagory)
