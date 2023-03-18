@@ -3,6 +3,7 @@ import ItemCard from "./ItemCard";
 import LoginNav from "./LoginNav";
 import axios from "axios"
 import { json } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const url = "/fetchCatagory/"
 
@@ -40,7 +41,7 @@ function ItemBrowsePage(props) {
   };
 
   return <>
-  <LoginNav />
+  <Navbar />
   <div>{props.catagory}</div>
   <>{itemArray}</>
   </>;
