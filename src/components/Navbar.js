@@ -128,7 +128,7 @@ function Navbar() {
                     </Menu.Item>
                   </NavLink>
 
-                  <NavLink to="//BrowseSportsandOutdoors">
+                  <NavLink to="/BrowseSportsandOutdoors">
                     <Menu.Item>
                       {({ active }) => (
                         <a

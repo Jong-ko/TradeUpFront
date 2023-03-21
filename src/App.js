@@ -7,6 +7,7 @@ import { selectIsLoggedIn } from './features/swapSlice';
 import { useSelector } from 'react-redux';
 import './App.css';
 import UserPage from './components/userPage';
+import ItemBrowsePage from './components/itemBrowsePage'
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
