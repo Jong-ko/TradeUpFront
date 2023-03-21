@@ -1,44 +1,29 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from "./components/loginForm";
-import { CreateAccount } from "./components/CreateAccount";
-import { Protected } from "./components/Protected";
-import {
-  selectIsLoggedIn,
-  logOut,
-  selectUserAccount,
-} from "./features/swapSlice";
-import { useSelector, useDispatch } from "react-redux";
-import "./App.css";
-import UserPage from "./components/userPage";
-import ItemBrowsePage from "./components/itemBrowsePage";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Login } from './components/loginForm';
+import { CreateAccount } from './components/CreateAccount';
+import { Protected } from './components/Protected';
+import { selectIsLoggedIn } from './features/swapSlice';
+import { useSelector } from 'react-redux';
+import './App.css';
+import UserPage from './components/userPage';
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const userAccount = useSelector(selectUserAccount);
-  const dispatch = useDispatch();
-
-  const accountLogOut = async () => {
-    await fetch("/logout")
-      .then((response) => response.json())
-      .then((json) => {
-        if (json.isLoggedIn) {
-          console.log("Still logged in");
-        } else {
-          dispatch(logOut());
-        }
-      });
-  };
 
   return (
-    <div className="App">
+    <div
+      className=" h-screen"
+      style={{
+        backgroundImage: `url(
+          https://www.toptal.com/designers/subtlepatterns/uploads/cubes.png
+        )`,
+      }}
+    >
       <BrowserRouter>
-        <div fluid="xs">
+        <div className="d-flex justify-content-center ">
           <div>
-            <div className="d-flex justify-content-center mt-3"></div>
-          </div>
-          <div>
-            <div className="d-flex justify-content-center mt-3">
+            <div>
               <Routes>
                 <Route
                   path="/profile"
