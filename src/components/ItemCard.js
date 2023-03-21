@@ -10,7 +10,7 @@ function ItemCard(props) {
           <img
             alt="not found"
             width={"250px"}
-        
+            src={"http://localhost:3001/images/"+props.itemInfo.image}
           />
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
