@@ -1,38 +1,61 @@
-import React, { useState } from "react";
-import { addSwaps } from "../features/swapSlice";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { setSwaps, selectUserAccount, selectAllItems } from "../features/swapSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function NewItemForm() {
   const dispatch = useDispatch();
+  const myUser = useSelector(selectUserAccount);
+  const myItem = useSelector(selectAllItems);
 
+  const [imageName, setImageName] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
-  const newImage = async (e) => {
-    e.preventDefault();
-    await fetch("/new-item", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        image: selectedImage,
-        description: description,
-        category: category,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        dispatch(addSwaps(data));
-        setSelectedImage("");
-        setDescription("");
-        setCategory("");
+  const newImage = async() => {
+    console.log(myItem);
+    const formData = new FormData();
+    formData.append("image", selectedImage);
+    formData.append("description", description);
+    formData.append("category", category);
+    formData.append("userAccount", myUser);
+    if(myItem.length !== 0) {
+      await fetch("/update-item", {
+        method: "POST",
+        body: formData
       })
-      .catch((error) => console.log("Unable to add post", error));
-  };
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          dispatch(setSwaps(data));
+          setSelectedImage("");
+        })
+        .catch((error) => console.log("Unable to add post", error));
+    } else {
+      await fetch("/new-item", {
+        method: "POST",
+        body: formData
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          dispatch(setSwaps(data));
+          setSelectedImage("");
+        })
+        .catch((error) => console.log("Unable to add post", error));
+    }
+  }
 
+  const fetchListItems = async () => {
+    await fetch("/list-items")
+      .then((response) => response.json())
+      .then((json) => dispatch(setSwaps(json)));
+  }
+
+  useEffect(() => {
+    fetchListItems();
+  }, []);
+  
   return (
     <div>
       <h1>Swap your way up!</h1>
@@ -97,6 +120,13 @@ function NewItemForm() {
 
       <br />
       <br />
+      <div>
+      <div className="container">
+        {myItem[0] && <img alt="not found" width={"250px"} src={myItem[0] && "http://localhost:3001/images/"+myItem[0].image} />}
+        <p>{myItem[0] && myItem[0].description}</p>
+        <p>{myItem[0] && myItem[0].category}</p>
+      </div>
+    </div>
     </div>
   );
 }

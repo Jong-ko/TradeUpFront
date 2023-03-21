@@ -1,30 +1,18 @@
 import React from "react";
 
-function DisplayItem({ swap, removeItemById }) {
-//   console.log(swap.image);
-//     const url = URL.createObjectURL(swap.image)
-
-//   const item = new Image()
-//    item.src = url;
-//    console.log(item)
-
+function DisplayItem({ swap }) {
 
   return (
     <div>
       <div className="container">
-        <image
+        <img
           alt="not found"
           width={"250px"}
-      
+          src={swap && "http://localhost:3001/images/"+swap.image}
         />
         <p>{swap ? swap.description : "NOT SET"}</p>
         <p>{swap ? swap.category : "NOT SET"}</p>
-        <button
-          id={swap ? swap.id : "NOT SET"}
-          onClick={() => removeItemById(swap ? swap.id : "NOT SET")}
-        >
-          Remove
-        </button>
+        <p>{swap ? 'http://localhost:3001/images/'+swap.image : "NOT SET"}</p>
       </div>
     </div>
   );
