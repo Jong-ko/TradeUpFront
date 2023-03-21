@@ -1,4 +1,5 @@
 import React from "react"
+import TradeButton from "./TradeButton"
 
 
 function ItemCard(props) {
@@ -14,21 +15,9 @@ function ItemCard(props) {
           />
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
-          <button
-            id={"NOT SET"}
-            // onClick={() => removeItemById("NOT SET")}
-          >
-            Trade
-          </button>
+          <TradeButton itemInfo={props.itemInfo}/>
         </div>
       </>
-
-
-        // <>
-        // <div>Imageplaceholder</div>
-        // <div>{props.itemInfo.name}</div>
-        // <button>Trade</button>
-        // </>
     )
 }
 export default ItemCard
