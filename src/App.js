@@ -35,6 +35,14 @@ function App() {
                 />
                 <Route path="/" element={<Login />} />
                 <Route path="/create-account" element={<CreateAccount />} />
+                {/* START Route For Item Browsing */}
+                <Route path="/BrowseClothingandAccessories" element={<ItemBrowsePage catagory={"Clothing and Accessories"}/>} />
+                <Route path="/BrowseElectronicsandGadgets" element={<ItemBrowsePage catagory={"Electronics and Gadgets"}/>} />
+                <Route path="/BrowseHomeandFurniture" element={<ItemBrowsePage catagory={"Home and Furniture"}/>} />
+                <Route path="/BrowseHealthandBeauty" element={<ItemBrowsePage catagory={"Health and Beauty"}/>} />
+                <Route path="/BrowseSportsandOutdoors" element={<ItemBrowsePage catagory={"Sports and Outdoors"}/>} />
+                <Route path="/BrowseToysandGames" element={<ItemBrowsePage catagory={"Toys and Games"}/>} />
+                {/* END Route For Item Browsing */}
               </Routes>
             </div>
           </div>

@@ -173,6 +173,7 @@ function Navbar() {
           </NavLink>
         </li>
       </ul>
+
     </div>
   );
 }

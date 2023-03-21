@@ -1,9 +1,11 @@
+
 import React, { useState } from "react";
 import { addSwaps } from "../features/swapSlice";
 import { useDispatch } from "react-redux";
 
 function NewItemForm() {
   const dispatch = useDispatch();
+
 
   const [imageName, setImageName] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
@@ -12,6 +14,7 @@ function NewItemForm() {
 
   const newImage = async (e) => {
     e.preventDefault();
+
 
     const formData = new FormData();
     formData.append("image", selectedImage);

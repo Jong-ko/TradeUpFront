@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import DisplayItem from "./DisplayItem";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +9,7 @@ import {
   setSwaps,
   deleteSwapById,
 } from "../features/swapSlice";
+
 
 function UserPage() {
   const myItems = useSelector(selectAllItems);
@@ -44,11 +46,13 @@ function UserPage() {
     <div className="UserPage">
       <Navbar />
       <NewItemForm />
+
       <div>
         {myItems.map((swap) => (
           <DisplayItem removeItemById={removeItemById} swap={swap} />
         ))}
       </div>
+
     </div>
   );
 }
