@@ -9,7 +9,6 @@ const id = 1
 
 function Offers() {
   const [offerList, setOfferList] = useState([]);
-
   const offerArray = offerList.map((list) => {
     return (
       <React.Fragment key={list.id}>
@@ -31,6 +30,8 @@ function Offers() {
       })
       .catch((error) => console.error(error));
   };
+
+  
 
   return (
     <>

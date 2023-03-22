@@ -1,22 +1,42 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function OfferCard(props) {
+  const [fetchedOfferinfo, setFetchedOfferInfo] = useState([]);
 
-    return (
-        <>
-        <div className="container" key={props.offerInfo.id}>
+  useEffect(() => {
+    fetchOfferInfo();
+  });
+
+  const fetchOfferInfo = () => {
+    const url = `/offerinfo/${props.offerInfo.offerorID}/${props.offerInfo.itemID}`;
+    axios
+      .get(url)
+      .then((response) => {
+        const fetchedOffers = response.data;
+        setFetchedOfferInfo(fetchedOffers);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  return (
+    <>
+      {/* <div>{offer}</div> */}
+      <div className="container" key={props.offerInfo.id}>
         <img
-          src={"http://localhost:3001/images/" + props.offerInfo.image}
+          // src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
           alt="not found"
           width={"250px"}
         />
-        <p>{props.offerInfo.description}</p>
-        <p>{props.offerInfo.category}</p>
+        {/* <p>{fetchedOfferinfo[1].firstName}</p> */}
+        {/* <p>{fetchedOfferinfo[0].name}</p> */}
+        <p>{fetchedOfferinfo[0].category}</p>
+        <p></p>
         {/* Place holder Need to make an accept offer component button  */}
         <button>Accept Offer</button>
-        </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }
 
-export default OfferCard
+export default OfferCard;
