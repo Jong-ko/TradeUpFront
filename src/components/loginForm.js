@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import "../App.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { logIn, setUserAccount } from "../features/swapSlice";
+import {
+  logIn,
+  selectUserID,
+  setUserAccount,
+  setUserId,
+} from "../features/swapSlice";
 import LoginNav from "./LoginNav";
 
 export const Login = () => {
+  const userId = useSelector(selectUserID);
+  console.log(userId);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorVisible, setErrorVisible] = useState(false);
@@ -30,6 +38,7 @@ export const Login = () => {
           setErrorVisible(false);
           dispatch(logIn());
           dispatch(setUserAccount(email));
+          dispatch(setUserId(userId));
           navigate("/profile");
         } else {
           setErrorVisible(true);
