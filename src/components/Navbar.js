@@ -8,6 +8,8 @@ import { Menu, Transition } from "@headlessui/react";
 
 function Navbar() {
   const userAccount = useSelector(selectUserAccount);
+  console.log(userAccount[0]);
+
   const dispatch = useDispatch();
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -28,8 +30,17 @@ function Navbar() {
   };
 
   return (
-    <div className="flex items-center justify-between flex-wrap bg-slate-900 p-6">
-      <ul className="flex  space-x-4 ">
+    <div className="fixed shadow-md  z-50 w-full px-5 flex justify-between items-center bg-slate-900 p-2">
+      <ul className=" flex space-y-4  space-x-5 ">
+        <li>
+          <a href="/about" class="flex items-center">
+            <img
+              src="/barterlogo.jpg"
+              className=" h-14 rounded-full"
+              alt="Barter House Logo"
+            />
+          </a>
+        </li>
         <li>
           <NavLink to="/profile">
             <a className="text-stone-100 hover:text-sky-300">Profile</a>
@@ -37,7 +48,9 @@ function Navbar() {
         </li>
         <li>
           <NavLink to="">
-            <a className="text-stone-100 hover:text-sky-300">Items for Trade</a>
+            <a className="text-stone-100 hover:text-sky-300">
+              Your Offers Page
+            </a>
           </NavLink>
         </li>
         <li>
@@ -47,7 +60,7 @@ function Navbar() {
         </li>
 
         <div>
-          <Menu as="div" className="relative inline-block text-left">
+          <Menu as="div" className="relative inline-block text-left ">
             <div>
               <Menu.Button className="text-stone-100 hover:text-sky-300">
                 Categories
@@ -63,7 +76,7 @@ function Navbar() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-5 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Menu.Items className="absolute right-5 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:border-gray-700 dark:text-zinc-200 ">
                 <div className="py-1">
                   <NavLink to="/BrowseClothingandAccessories">
                     <Menu.Item>
@@ -71,8 +84,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -88,8 +101,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -105,8 +118,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -122,8 +135,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -139,8 +152,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -156,8 +169,8 @@ function Navbar() {
                         <a
                           className={classNames(
                             active
-                              ? "bg-gray-100 text-gray-900"
-                              : "text-gray-700",
+                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                              : "text-gray-700  dark:text-slate-200",
                             "block px-4 py-2 text-sm"
                           )}
                         >
@@ -172,7 +185,7 @@ function Navbar() {
           </Menu>
         </div>
 
-        <li className=" flex-wrap. absolute top-7 right-4 ">
+        <li className="absolute top-2 right-6 ">
           <NavLink to="/" onClick={accountLogOut}>
             <a className=" text-stone-100 hover:text-sky-300">Logout</a>
           </NavLink>
