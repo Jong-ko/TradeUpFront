@@ -17,7 +17,9 @@ body {
 
 @layer base {
   html {
+    @apply scroll-smooth;
     font-family: Trebuchet Ms, system-ui, sans-serif;
+    
   }
 }
 
