@@ -13,7 +13,6 @@ function NewItemForm() {
 
   const dateString = myItem[0]; //this is where myItem[0].createdAt is supposed to go to be assigned to dateString
 
-  const [imageName, setImageName] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -44,7 +43,6 @@ function NewItemForm() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           dispatch(setSwaps(data));
           setSelectedImage("");
         })
@@ -57,6 +55,23 @@ function NewItemForm() {
       .then((response) => response.json())
       .then((json) => dispatch(setSwaps(json)));
   };
+
+  const removeItem = async () => {
+    await fetch("/delete-item/"+myItem[0].id.toString(),{
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        image: myItem[0].image,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch(setSwaps([]));
+    })
+    .catch((error) => console.log("Unable to add post", error));
+  }
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -195,6 +210,9 @@ function NewItemForm() {
             <div className="flex justify-items-center">
               <label>Category:</label>
               <p>{myItem[0] && myItem[0].category}</p>
+            </div>
+            <div className="flex justify-items-center">
+            <p>{myItem[0] && <button className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2" onClick={removeItem}>Remove Item</button>}</p>
             </div>
           </div>
 
