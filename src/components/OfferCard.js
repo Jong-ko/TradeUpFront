@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function OfferCard(props) {
-  const [fetchedOfferinfo, setFetchedOfferInfo] = useState([]);
+  const [fetchedOfferinfo, setFetchedOfferInfo] = useState([{},{}]);
 
   useEffect(() => {
     fetchOfferInfo();
-  });
+  },[]);
 
   const fetchOfferInfo = () => {
     const url = `/offerinfo/${props.offerInfo.offerorID}/${props.offerInfo.itemID}`;
@@ -28,8 +28,8 @@ function OfferCard(props) {
           alt="not found"
           width={"250px"}
         />
-        {/* <p>{fetchedOfferinfo[1].firstName}</p> */}
-        {/* <p>{fetchedOfferinfo[0].name}</p> */}
+        <p>{fetchedOfferinfo[1].firstName}</p>
+        <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
         <p></p>
         {/* Place holder Need to make an accept offer component button  */}
