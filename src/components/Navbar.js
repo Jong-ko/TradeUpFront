@@ -40,6 +40,11 @@ function Navbar() {
             <a className="text-stone-100 hover:text-sky-300">Items for Trade</a>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/offers">
+            <a className="text-stone-100 hover:text-sky-300">Offers</a>
+          </NavLink>
+        </li>
 
         <div>
           <Menu as="div" className="relative inline-block text-left">

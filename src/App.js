@@ -8,6 +8,9 @@ import { selectIsLoggedIn } from './features/swapSlice';
 import { useSelector } from 'react-redux';
 import './App.css';
 import UserPage from './components/userPage';
+import ItemBrowsePage from './components/itemBrowsePage'
+import Offers from './components/Offers';
+
 
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -36,6 +39,8 @@ function App() {
                 />
                 <Route path="/" element={<Login />} />
                 <Route path="/create-account" element={<CreateAccount />} />
+                {/* Route for offers page */}
+                <Route path="/offers" element={<Offers />} />
                 {/* START Route For Item Browsing */}
                 <Route
                   path="/BrowseClothingandAccessories"
