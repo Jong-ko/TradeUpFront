@@ -1,7 +1,10 @@
 import React from "react";
 import TradeButton from "./TradeButton";
+import { useSelector } from "react-redux";
+import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
+  const myItem = useSelector(selectAllItems);
   return (
     <>
       <div className="">
@@ -20,7 +23,7 @@ function ItemCard(props) {
           </div>
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
-          <TradeButton itemInfo={props.itemInfo} />
+          {myItem[0] && <TradeButton itemInfo={props.itemInfo} />}
         </div>
       </div>
     </>
