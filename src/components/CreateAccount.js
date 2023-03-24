@@ -38,7 +38,7 @@ export const CreateAccount = () => {
           dispatch(setUserAccount(email));
           setEmail("");
           setPassword("");
-          navigate("/profile");
+          navigate("/");
         } else {
           setErrorVisible(true);
         }
