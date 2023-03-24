@@ -11,11 +11,10 @@ function NewItemForm() {
   const myUser = useSelector(selectUserAccount);
   const myItem = useSelector(selectAllItems);
 
-  const dateString = myItem[0]; //this is where myItem[0].createdAt is supposed to go to be assigned to dateString
-
   const [selectedImage, setSelectedImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [name, setName] = useState("");
 
   const newImage = async () => {
     console.log(myItem);
@@ -23,6 +22,7 @@ function NewItemForm() {
     formData.append("image", selectedImage);
     formData.append("description", description);
     formData.append("category", category);
+    formData.append("name", name);
     formData.append("userAccount", myUser);
     if (myItem.length !== 0) {
       await fetch("/update-item", {
@@ -57,7 +57,7 @@ function NewItemForm() {
   };
 
   const removeItem = async () => {
-    await fetch("/delete-item/"+myItem[0].id.toString(),{
+    await fetch("/delete-item/" + myItem[0].id.toString(), {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -66,16 +66,16 @@ function NewItemForm() {
         image: myItem[0].image,
       }),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      dispatch(setSwaps([]));
-    })
-    .catch((error) => console.log("Unable to add post", error));
-  }
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setSwaps([]));
+      })
+      .catch((error) => console.log("Unable to add post", error));
+  };
 
-  const formatDate = (dateString) => {
+  const formatDate = () => {
     const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return new Date().toLocaleDateString(undefined, options);
   };
 
   function refreshPage() {
@@ -129,6 +129,24 @@ function NewItemForm() {
             </select>
           </div>
         </form>
+
+        <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+          <form>
+            <input
+              maxLength="100"
+              type="text"
+              name="swapName"
+              placeholder="Title of Item"
+              className=" p-2.5 mx-1 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+              onChange={(event) => {
+                event.preventDefault();
+
+                console.log(event.target.value);
+                setName(event.target.value);
+              }}
+            />
+          </form>
+        </div>
 
         <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           <div className="mx-10 py-5">
@@ -212,12 +230,21 @@ function NewItemForm() {
               <p>{myItem[0] && myItem[0].category}</p>
             </div>
             <div className="flex justify-items-center">
-            <p>{myItem[0] && <button className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2" onClick={removeItem}>Remove Item</button>}</p>
+              <p>
+                {myItem[0] && (
+                  <button
+                    className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2"
+                    onClick={removeItem}
+                  >
+                    Remove Item
+                  </button>
+                )}
+              </p>
             </div>
           </div>
 
           <br></br>
-          <p>{myItem[0] && formatDate(dateString)}</p>
+          <p>{myItem[0] && formatDate(myItem[0].createdAt)}</p>
         </div>
       </div>
     </div>
