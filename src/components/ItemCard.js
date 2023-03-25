@@ -5,7 +5,7 @@ import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
   let myItem = [];
-  if(!(window.localStorage.getItem('localMyItems'))) {
+  if((window.localStorage.getItem('localMyItems')) !== null) {
     myItem = window.localStorage.getItem('localMyItems');
   }
 
