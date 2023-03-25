@@ -5,7 +5,8 @@ import OfferCard from "./OfferCard";
 
 const url = "/fetchoffers/";
 
-const id = 1
+const userId = window.localStorage.getItem('localUserID');
+
 
 function Offers() {
   const [offerList, setOfferList] = useState([]);
@@ -23,7 +24,7 @@ function Offers() {
 
   const fetchOffers = () => {
     axios
-      .get(url + id)
+      .get(url + userId)
       .then((response) => {
         const fetchedOffers = response.data;
         setOfferList(fetchedOffers);
