@@ -11,9 +11,6 @@ import {
 import LoginNav from "./LoginNav";
 
 export const Login = () => {
-  const userId = useSelector(selectUserID);
-  console.log(userId);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorVisible, setErrorVisible] = useState(false);
@@ -38,7 +35,10 @@ export const Login = () => {
           setErrorVisible(false);
           dispatch(logIn());
           dispatch(setUserAccount(email));
-          dispatch(setUserId(userId));
+          dispatch(setUserId(data.userID));
+          window.localStorage.setItem('localIsLoggedIn', true);
+          window.localStorage.setItem('localUserAccount', email);
+          window.localStorage.setItem('localUserID', data.userID);
           navigate("/profile");
         } else {
           setErrorVisible(true);
