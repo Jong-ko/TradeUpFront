@@ -36,6 +36,10 @@ export const swapSlice = createSlice({
       state.userAccount = '';
       state.myItems = [];
       state.userId = 0;
+      window.localStorage.removeItem('localIsLoggedIn');
+      window.localStorage.removeItem('localUserAccount');
+      window.localStorage.removeItem('localUserID');
+      window.localStorage.removeItem('localMyItems');
     },
   },
 });

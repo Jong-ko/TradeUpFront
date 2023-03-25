@@ -33,6 +33,7 @@ function NewItemForm() {
         .then((data) => {
           console.log(data);
           dispatch(setSwaps(data));
+          window.localStorage.setItem('localMyItems',data);
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -44,6 +45,7 @@ function NewItemForm() {
         .then((response) => response.json())
         .then((data) => {
           dispatch(setSwaps(data));
+          window.localStorage.setItem('localMyItems',data);
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -53,7 +55,10 @@ function NewItemForm() {
   const fetchListItems = async () => {
     await fetch("/list-items")
       .then((response) => response.json())
-      .then((json) => dispatch(setSwaps(json)));
+      .then((json) => {
+        dispatch(setSwaps(json));
+        window.localStorage.setItem('localMyItems', json);
+      });
   };
 
   const removeItem = async () => {
@@ -69,6 +74,7 @@ function NewItemForm() {
       .then((response) => response.json())
       .then((data) => {
         dispatch(setSwaps([]));
+        window.localStorage.removeItem('localMyItems');
       })
       .catch((error) => console.log("Unable to add post", error));
   };
