@@ -8,14 +8,14 @@ import { Menu, Transition } from "@headlessui/react";
 
 function Navbar() {
   const userAccount = useSelector(selectUserAccount);
-  console.log(userAccount[0]);
+  // console.log(userAccount[0]);
 
   const dispatch = useDispatch();
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
 
-  console.log(userAccount);
+  // console.log(userAccount);
 
   const accountLogOut = async () => {
     await fetch("/logout")

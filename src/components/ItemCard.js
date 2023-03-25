@@ -5,6 +5,7 @@ import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
   const myItem = window.localStorage.getItem('localMyItems');
+
   return (
     <>
       <div className="">
@@ -25,6 +26,7 @@ function ItemCard(props) {
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
           {myItem[0] && <TradeButton itemInfo={props.itemInfo} />}
+          {/* <TradeButton itemInfo={props.itemInfo} /> */}
         </div>
       </div>
     </>

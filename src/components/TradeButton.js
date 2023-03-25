@@ -1,21 +1,20 @@
-import { useEffect } from "react";
 // import React{ useEffect } from "react";
 import axios from "axios";
 
 function TradeButton(props) {
   // useEffect(() => {initiateTrade});
-  console.log(props);
+
   const url = "/trade";
 
   const userId = window.localStorage.getItem('localUserID');
-  console.log(userId)
+
 
   const initiateTrade = () => {
-    console.log("Trade!");
+
     axios
       .post(url, {
         offerorID: userId,
-        offereeID: props.itemInfo.userID,
+        offereeID: props.itemInfo.userAccount,
         itemID: props.itemInfo.id,
       })
       .then((response) => {

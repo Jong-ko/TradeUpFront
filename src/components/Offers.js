@@ -6,7 +6,7 @@ import OfferCard from "./OfferCard";
 const url = "/fetchoffers/";
 
 const userId = window.localStorage.getItem('localUserID');
-console.log(userId)
+
 
 function Offers() {
   const [offerList, setOfferList] = useState([]);
