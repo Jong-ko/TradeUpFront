@@ -10,13 +10,12 @@ import './App.css';
 import UserPage from './components/userPage';
 import Offers from './components/Offers';
 
-
 function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <div
-      className=" h-screen"
+      className=" h-full"
       style={{
         backgroundImage: `url(
           https://www.toptal.com/designers/subtlepatterns/uploads/cubes.png

@@ -11,7 +11,7 @@ function ItemCard(props) {
 
   return (
     <>
-      <div className="">
+      <div>
         <div
           className=" mt-auto px-5 py-5 no-underline hover:underline "
           key={props.itemInfo.id}
