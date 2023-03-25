@@ -13,7 +13,7 @@ function NewItemForm() {
 
   const [selectedImage, setSelectedImage] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Clothing and Accessories");
   const [name, setName] = useState("");
 
   const newImage = async () => {

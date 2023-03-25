@@ -10,7 +10,6 @@ function TradeButton(props) {
 
 
   const initiateTrade = () => {
-
     axios
       .post(url, {
         offerorID: userAccount,
@@ -19,6 +18,7 @@ function TradeButton(props) {
       })
       .then((response) => {
         console.log(response);
+        window.location.reload(false);
       })
       .catch((error) => console.error(error));
   };
