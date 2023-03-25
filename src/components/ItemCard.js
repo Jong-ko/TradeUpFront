@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
-  const myItem = useSelector(selectAllItems);
+  const myItem = window.localStorage.getItem('localMyItems');
   return (
     <>
       <div className="">
