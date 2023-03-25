@@ -7,11 +7,14 @@ function TradeButton(props) {
   console.log(props);
   const url = "/trade";
 
+  const userId = window.localStorage.getItem('localUserID');
+  console.log(userId)
+
   const initiateTrade = () => {
     console.log("Trade!");
     axios
       .post(url, {
-        offerorID: "1",
+        offerorID: userId,
         offereeID: props.itemInfo.userID,
         itemID: props.itemInfo.id,
       })
