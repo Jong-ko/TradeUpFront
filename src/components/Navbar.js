@@ -33,10 +33,10 @@ function Navbar() {
     <div className="fixed shadow-md  z-50 w-full px-5 flex justify-between items-center bg-slate-900 p-2">
       <ul className=" flex space-y-4  space-x-5 ">
         <li>
-          <a href="/about" class="flex items-center">
+          <a href="/profile" class="flex items-center">
             <img
               src="/barterlogo.jpg"
-              className=" h-14 rounded-full"
+              className="  h-14 rounded-full"
               alt="Barter House Logo"
             />
           </a>
@@ -46,13 +46,7 @@ function Navbar() {
             <a className="text-stone-100 hover:text-sky-300">Profile</a>
           </NavLink>
         </li>
-        <li>
-          <NavLink to="">
-            <a className="text-stone-100 hover:text-sky-300">
-              Your Offers Page
-            </a>
-          </NavLink>
-        </li>
+
         <li>
           <NavLink to="/offers">
             <a className="text-stone-100 hover:text-sky-300">Offers</a>

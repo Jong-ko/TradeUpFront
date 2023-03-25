@@ -7,7 +7,7 @@ function ItemCard(props) {
   const myItem = useSelector(selectAllItems);
   return (
     <>
-      <div className="">
+      <div>
         <div
           className=" mt-auto px-5 py-5 no-underline hover:underline "
           key={props.itemInfo.id}

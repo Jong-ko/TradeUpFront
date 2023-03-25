@@ -19,28 +19,42 @@ const url = "/fetchCatagory/";
 
 function ItemBrowsePage(props) {
   const [itemList, setItemList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
+
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
   const itemsPerPage = 20;
+  // Simulate fetching items from another resources.
+  // (This could be items from props; or items loaded in a local state
+  // from an API endpoint with useEffect and useState)
+  const endOffset = itemOffset + itemsPerPage;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = itemList.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(itemList.length / itemsPerPage);
 
-  const itemArray = itemList
-    .map((list) => {
-      // console.log(list.id)
-      return (
-        <React.Fragment key={list.id}>
-          <ItemCard itemInfo={list} key={list.id} />
-        </React.Fragment>
-      );
-    })
-    .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % itemList.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
 
-  function handlePageChange(pageNumber) {
-    setCurrentPage(pageNumber.selected);
-  }
+    setItemOffset(newOffset);
+  };
+
+  const itemArray = currentItems.map((list) => {
+    // console.log(list.id)
+    return (
+      <React.Fragment key={list.id}>
+        <ItemCard itemInfo={list} key={list.id} />
+      </React.Fragment>
+    );
+  });
 
   //trigger fetch items when page catagory(store in props) change
   useEffect(() => {
     fetchItems();
-  }, [props, currentPage, itemsPerPage]);
+  }, [props, itemsPerPage, pageCount]);
 
   //fetch items with catagory parameter
   const fetchItems = () => {
@@ -56,7 +70,7 @@ function ItemBrowsePage(props) {
   return (
     <div>
       <Navbar />
-      <div className="pt-32 text-4xl font-semibold text-white-900 dark:bg-gray-800  dark:text-white">
+      <div className="pt-32 pb-10 text-4xl font-semibold text-white-900 dark:bg-gray-800  dark:text-white">
         {props.catagory}
       </div>
       <div className=" dark:bg-gray-800 dark:border-gray-700 dark:text-teal-50">
@@ -67,13 +81,14 @@ function ItemBrowsePage(props) {
         <div className=" static bottom-0 mt-10 pb-5 pt-10">
           <ReactPaginate
             pageLinkClassName="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300  hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            pageCount={5}
+            pageCount={pageCount}
             marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageChange}
+            pageRangeDisplayed={20}
+            onPageChange={handlePageClick}
             className="inline-flex -space-x-px"
             containerClassName={"pagination"}
-            activeClassName={"active"}
+            renderOnZeroPageCount={null}
+            breakLabel="..."
             previousLinkClassName="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             nextLinkClassName="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
           />
