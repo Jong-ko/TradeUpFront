@@ -33,7 +33,7 @@ function NewItemForm() {
         .then((data) => {
           console.log(data);
           dispatch(setSwaps(data));
-          window.localStorage.setItem('localMyItems',data);
+          window.localStorage.setItem('localMyItems',JSON.stringify(data));
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -45,7 +45,7 @@ function NewItemForm() {
         .then((response) => response.json())
         .then((data) => {
           dispatch(setSwaps(data));
-          window.localStorage.setItem('localMyItems',data);
+          window.localStorage.setItem('localMyItems',JSON.stringify(data));
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -57,7 +57,7 @@ function NewItemForm() {
       .then((response) => response.json())
       .then((json) => {
         dispatch(setSwaps(json));
-        window.localStorage.setItem('localMyItems', json);
+        window.localStorage.setItem('localMyItems', JSON.stringify(json));
       });
   };
 
