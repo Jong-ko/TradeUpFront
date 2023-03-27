@@ -7,7 +7,7 @@ function TradeButton(props) {
   const url = "/trade";
 
   const userAccount = window.localStorage.getItem('localUserAccount');
-
+  const userItem = JSON.parse(window.localStorage.getItem('localMyItems'));
 
   const initiateTrade = () => {
     axios
@@ -15,9 +15,11 @@ function TradeButton(props) {
         offerorID: userAccount,
         offereeID: props.itemInfo.userAccount,
         itemID: props.itemInfo.id,
+        offerorItemID: userItem[0].id,
       })
       .then((response) => {
         console.log(response);
+        console.log(userItem[0]);
         window.location.reload(false);
       })
       .catch((error) => console.error(error));
