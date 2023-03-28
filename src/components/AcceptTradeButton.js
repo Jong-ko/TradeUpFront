@@ -1,8 +1,17 @@
-
+import axios from "axios";
 
 function AcceptTradeButton(props) {
-  const acceptTrade = () => {
-    console.log("Accepted Trade");
+  function acceptTrade() {
+    const url = `/accept-trade`;
+    axios
+      .post(url, {
+        offerorID: props.offerorID,
+        offereeID: props.offereeID,
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => console.error(error));
   }
 
   return (
