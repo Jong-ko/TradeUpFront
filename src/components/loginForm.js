@@ -39,6 +39,7 @@ export const Login = () => {
           window.localStorage.setItem('localIsLoggedIn', true);
           window.localStorage.setItem('localUserAccount', email);
           window.localStorage.setItem('localUserID', data.userID);
+          console.log(window.localStorage.getItem('localUserAccount'));
           navigate("/profile");
         } else {
           setErrorVisible(true);

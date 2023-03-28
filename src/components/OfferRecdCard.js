@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AcceptTradeButton from "./AcceptTradeButton";
 
-function OfferCard(props) {
+function OfferRecdCard(props) {
   const [fetchedOfferinfo, setFetchedOfferInfo] = useState([{},{}]);
 
   useEffect(() => {
@@ -15,12 +15,10 @@ function OfferCard(props) {
     axios
       .post(url, {
         offerorID: props.offerInfo.offerorID,
-        itemID: props.offerInfo.itemID,
+        itemID: props.offerInfo.offerorItemID,
       })
       .then((response) => {
         setFetchedOfferInfo(response.data);
-        console.log(fetchedOfferinfo[0].image);
-        console.log(fetchedOfferinfo[1]);
       })
       .catch((error) => console.error(error));
   };
@@ -29,7 +27,7 @@ function OfferCard(props) {
     <>
       {/* <div>{offer}</div> */}
       <div className="container" key={props.offerInfo.id}>
-        {fetchedOfferinfo[0].image && <img
+      {fetchedOfferinfo[0].image && <img
           src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
           alt="not found"
           width={"250px"}
@@ -38,9 +36,10 @@ function OfferCard(props) {
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
         <p></p>
+        <AcceptTradeButton OfferorId={props.offerInfo.offerorID} OfferorItem={'kek'} Offereeid={props.offerInfo.offereeID} OffereeItem={props.offerInfo.itemID}/>
       </div>
     </>
   );
 }
 
-export default OfferCard;
+export default OfferRecdCard;

@@ -1,11 +1,13 @@
 
 
 function AcceptTradeButton(props) {
-
+  const acceptTrade = () => {
+    console.log("Accepted Trade");
+  }
 
   return (
     <>
-      <button>Accept Trade</button>
+      <button onClick={acceptTrade}>Accept Trade</button>
     </>
   );
 }
