@@ -23,6 +23,8 @@ function OfferRecdCard(props) {
       .catch((error) => console.error(error));
   };
 
+  console.log(props)
+
   return (
     <>
       {/* <div>{offer}</div> */}
@@ -36,7 +38,7 @@ function OfferRecdCard(props) {
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
         <p></p>
-        <AcceptTradeButton OfferorId={props.offerInfo.offerorID} OfferorItem={'kek'} Offereeid={props.offerInfo.offereeID} OffereeItem={props.offerInfo.itemID}/>
+        <AcceptTradeButton offerorID={props.offerInfo.offerorID} offereeID={props.offerInfo.offereeID}/>
       </div>
     </>
   );
