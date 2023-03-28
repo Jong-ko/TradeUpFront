@@ -38,6 +38,7 @@ function PendingMadeCard(props) {
         <p>{fetchedOfferinfo[0].category}</p>
         <p></p>
         <OfferorApproveButton offerorID={props.offerInfo.offerorID} offereeID={props.offerInfo.offereeID} itemID={props.offerInfo.itemID} offerorItemID={props.offerInfo.offerorItemID} offerorAccepted={props.offerInfo.offerorAccepted}/>
+        <br></br>
         <CancelTradeButton tradeID={props.offerInfo.Id} />
       </div>
     </>
