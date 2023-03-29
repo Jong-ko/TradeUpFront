@@ -12,22 +12,15 @@ function OffereeApproveButton(props) {
       })
       .then((response) => {
         console.log(response);
+        window.location.reload(false);
       })
       .catch((error) => console.error(error));
   }
-
-  if (props.offerorAccepted == true) {
-    return (
-      <>
-        <div>Accepted!</div>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <button onClick={OffereeApprove}>Approve</button>
-      </>
-    );
-  }
+  return (
+    <>
+      <button onClick={OffereeApprove}>Approve</button>
+    </>
+  );
 }
+
 export default OffereeApproveButton;

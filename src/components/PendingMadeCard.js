@@ -24,6 +24,8 @@ function PendingMadeCard(props) {
       .catch((error) => console.error(error));
   };
 
+  console.log(props.offerInfo.offerorAccepted)
+
   return (
     <>
       {/* <div>{offer}</div> */}
@@ -36,10 +38,21 @@ function PendingMadeCard(props) {
         <p>{fetchedOfferinfo[1].firstName}</p>
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
-        <p></p>
-        <OfferorApproveButton offerorID={props.offerInfo.offerorID} offereeID={props.offerInfo.offereeID} itemID={props.offerInfo.itemID} offerorItemID={props.offerInfo.offerorItemID} offerorAccepted={props.offerInfo.offerorAccepted}/>
-        <br></br>
-        <CancelTradeButton tradeID={props.offerInfo.Id} />
+        {props.offerInfo.offerorAccepted ? (
+          <p>Accepted!</p>
+        ) : (
+            <>
+          <OfferorApproveButton
+            offerorID={props.offerInfo.offerorID}
+            offereeID={props.offerInfo.offereeID}
+            itemID={props.offerInfo.itemID}
+            offerorItemID={props.offerInfo.offerorItemID}
+          />
+          <br></br>
+          <CancelTradeButton tradeID={props.offerInfo.Id} />
+          </>
+        )}
+        
       </div>
     </>
   );
