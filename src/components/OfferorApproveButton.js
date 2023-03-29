@@ -12,9 +12,12 @@ function OfferorApproveButton(props) {
       })
       .then((response) => {
         console.log(response);
+        this.forceUpdate();
+
       })
       .catch((error) => console.error(error));
   }
+
 
   if (props.offerorAccepted == true) {
     return (

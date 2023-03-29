@@ -10,6 +10,7 @@ function AcceptTradeButton(props) {
       })
       .then((response) => {
         console.log(response);
+        window.location.reload(false);
       })
       .catch((error) => console.error(error));
   }
