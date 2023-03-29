@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import TradeButton from "./TradeButton";
 import { useSelector } from "react-redux";
 import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
   let myItem = [];
+  let isPending = "";
+  
   if((window.localStorage.getItem('localMyItems')) !== null) {
-    myItem = window.localStorage.getItem('localMyItems');
+    myItem = window.localStorage.getItem('localMyItems') ;
+  }
+  if((window.localStorage.getItem('localIsPending')) !== null) {
+    isPending = (window.localStorage.getItem('localIsPending')==='true');
   }
 
   return (
@@ -28,7 +33,7 @@ function ItemCard(props) {
           <p>{props.itemInfo.name}</p>
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
-          {myItem[0] && <TradeButton itemInfo={props.itemInfo} />}
+          {((myItem[0]) && (!isPending)) ? <TradeButton itemInfo={props.itemInfo} /> : ""}
           {/* <TradeButton itemInfo={props.itemInfo} /> */}
         </div>
       </div>
