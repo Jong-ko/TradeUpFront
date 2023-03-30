@@ -15,8 +15,8 @@ function PendingMadeCard(props) {
     const url = '/offerinfo';
     axios
       .post(url, {
-        offerorID: props.offerInfo.offerorID,
-        itemID: props.offerInfo.offerorItemID,
+        offerorID: props.offerInfo.offereeID,
+        itemID: props.offerInfo.itemID,
       })
       .then((response) => {
         setFetchedOfferInfo(response.data);
@@ -24,12 +24,12 @@ function PendingMadeCard(props) {
       .catch((error) => console.error(error));
   };
 
-  console.log(props.offerInfo.offerorAccepted)
+  console.log(props.offerInfo)
 
   return (
     <>
       {/* <div>{offer}</div> */}
-      <div className="container" key={props.offerInfo.id}>
+      <div className="flex flex-col items-center" key={props.offerInfo.id}>
       {fetchedOfferinfo[0].image && <img
           src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
           alt="not found"
@@ -49,7 +49,7 @@ function PendingMadeCard(props) {
             offerorItemID={props.offerInfo.offerorItemID}
           />
           <br></br>
-          <CancelTradeButton tradeID={props.offerInfo.Id} />
+          <CancelTradeButton tradeID={props.offerInfo.id} />
           </>
         )}
         
