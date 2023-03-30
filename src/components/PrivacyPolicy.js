@@ -9,8 +9,8 @@ export default function PrivacyPolicy() {
       <div>
         <LoginNav />
         <div className="h-full ">
-          <div className="place-items-center grid h-auto pt-56 pb-32">
-            <div className="card bg-white flex flex-col items-center justify-center p-4 shadow-lg rounded-2xl lg:max-w-5xl xs:m-5 sm:max-w-sm">
+          <div className="place-items-center grid h-auto pt-56 pb-32 xs:pt-40">
+            <div className="card bg-white flex flex-col items-center justify-center p-4 shadow-lg rounded-2xl lg:max-w-5xl md:max-w-2xl xs:m-5 sm:max-w-sm">
               <div class="profile mx-auto rounded-full py-2">
                 <img
                   className="rounded-full max-h-40"
