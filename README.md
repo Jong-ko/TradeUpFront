@@ -1,3 +1,21 @@
+# Barter House
+
+
+## What we set out to do
+
+## Tech Stack
+
+## Contributors
+
+### Thomas Lee 
+PM/Scrum and Developer
+
+### Kristina Song 
+Designor and Developer
+
+### Jeremy Ongko 
+Technical Writer and Developer
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
