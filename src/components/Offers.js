@@ -17,7 +17,7 @@ function Offers() {
   const [offersMadeList, setOffersMadeList] = useState([]);
   const [offersRecdList, setOffersRecdList] = useState([]);
   const [pendingMade, setPendingMade] = useState([]);
-  const [pendingRecd, setPendingRecd] = useState([])
+  const [pendingRecd, setPendingRecd] = useState([]);
 
   const offerArray = offersMadeList.map((list) => {
     // console.log(list);
@@ -114,19 +114,29 @@ function Offers() {
   return (
     <>
       <Navbar />
-      <div className="pt-32 pb-10 text-4xl font-semibold text-white-900 dark:bg-gray-800  dark:text-white">
-        Pending
+      <div className=" h-screen grid grid-cols-3 sm:grid-cols-3 lg:m-auto sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8">
+        <div>
+          <div className="pt-32 pb-10 text-center  max-w-full  dark:bg-gray-800  dark:text-white">
+            Pending
+          </div>
+          <div className="grid grid-cols-2">
+            <>{pendingMadeArray}</>
+            <>{pendingRecdArray}</>
+          </div>
+        </div>
+        <div>
+          <div className="pt-32 pb-10  max-w-full  dark:bg-gray-800  dark:text-white">
+            Offers Made
+          </div>
+          <>{offerArray}</>
+        </div>
+        <div>
+          <div className="pt-32 pb-10  max-w-full   dark:bg-gray-800  dark:text-white">
+            Offers Received
+          </div>
+          <>{offerRecdArray}</>
+        </div>
       </div>
-      <>{pendingMadeArray}</>
-      <>{pendingRecdArray}</>
-      <div className="pt-32 pb-10 text-4xl font-semibold text-white-900 dark:bg-gray-800  dark:text-white">
-        Offers Made
-      </div>
-      <>{offerArray}</>
-      <div className="pt-32 pb-10 text-4xl font-semibold text-white-900 dark:bg-gray-800  dark:text-white">
-        Offers Received
-      </div>
-      <>{offerRecdArray}</>
     </>
   );
 }

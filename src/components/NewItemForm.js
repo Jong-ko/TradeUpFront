@@ -33,7 +33,7 @@ function NewItemForm() {
         .then((data) => {
           console.log(data);
           dispatch(setSwaps(data));
-          window.localStorage.setItem('localMyItems',JSON.stringify(data));
+          window.localStorage.setItem("localMyItems", JSON.stringify(data));
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -45,7 +45,7 @@ function NewItemForm() {
         .then((response) => response.json())
         .then((data) => {
           dispatch(setSwaps(data));
-          window.localStorage.setItem('localMyItems',JSON.stringify(data));
+          window.localStorage.setItem("localMyItems", JSON.stringify(data));
           setSelectedImage("");
         })
         .catch((error) => console.log("Unable to add post", error));
@@ -57,7 +57,7 @@ function NewItemForm() {
       .then((response) => response.json())
       .then((json) => {
         dispatch(setSwaps(json));
-        window.localStorage.setItem('localMyItems', JSON.stringify(json));
+        window.localStorage.setItem("localMyItems", JSON.stringify(json));
       });
   };
 
@@ -74,7 +74,7 @@ function NewItemForm() {
       .then((response) => response.json())
       .then((data) => {
         dispatch(setSwaps([]));
-        window.localStorage.removeItem('localMyItems');
+        window.localStorage.removeItem("localMyItems");
       })
       .catch((error) => console.log("Unable to add post", error));
   };
@@ -228,7 +228,7 @@ function NewItemForm() {
       <br />
       <div className="relative pb-5 m-5 h-min max-w-md ">
         <div className="myItem-container px-10 py-5 rounded-lg pt-4 m-auto max-w-xl shadow-2xl  bg-indigo-100">
-          <h1 className="pb-5 text-2xl font-bold dark:text-white">
+          <h1 className="pb-5 text-2xl font-bold dark:text-black">
             {myItem[0] && myItem[0].name}
           </h1>
           {myItem[0] && (
@@ -243,13 +243,13 @@ function NewItemForm() {
           )}
           <div className="pt-5">
             <div className="flex justify-items-center">
-              <label className="text-lg font-bold dark:text-white">
+              <label className="text-lg font-bold dark:text-black">
                 Description:
               </label>
               <p>{myItem[0] && myItem[0].description}</p>
             </div>
             <div className="flex justify-items-center pt-5 space-x-2">
-              <label className="text-lg font-bold dark:text-white">
+              <label className="text-lg font-bold dark:text-black">
                 Category:
               </label>
               <p>{myItem[0] && myItem[0].category}</p>
