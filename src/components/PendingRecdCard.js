@@ -29,7 +29,7 @@ function PendingRecdCard(props) {
   return (
     <>
       {/* <div>{offer}</div> */}
-      <div className="container" key={props.offerInfo.id}>
+      <div className="flex flex-col items-center" key={props.offerInfo.id}>
         {fetchedOfferinfo[0].image && (
           <img
             src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
@@ -52,7 +52,7 @@ function PendingRecdCard(props) {
             offerorItemID={props.offerInfo.offerorItemID}
           />
           <br></br>
-          <CancelTradeButton tradeID={props.offerInfo.Id} />
+          <CancelTradeButton tradeID={props.offerInfo.id} />
           </>
         )}
 
