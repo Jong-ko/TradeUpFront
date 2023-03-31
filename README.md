@@ -7,15 +7,15 @@ Then they will be able to browse other user's items by catagory and offer trades
 
 ## Tech Stack
 
-React
-Redux
-Sequelize
-PostgreSQL
-TailWindCSS
-Express
-Axios
-FireBase
-JavaScript
++React
++Redux
++Sequelize
++PostgreSQL
++TailWindCSS
++Express
++Axios
++FireBase
++JavaScript
 
 ## MVP
 
