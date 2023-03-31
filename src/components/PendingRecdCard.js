@@ -29,7 +29,12 @@ function PendingRecdCard(props) {
   return (
     <>
       {/* <div>{offer}</div> */}
-      <div className="flex flex-col items-center" key={props.offerInfo.id}>
+
+      <div
+        className="flex justify-items-center px-3 m-auto"
+        key={props.offerInfo.id}
+      >
+
         {fetchedOfferinfo[0].image && (
           <img
             src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
@@ -41,6 +46,7 @@ function PendingRecdCard(props) {
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
         <p></p>
+
         {props.offerInfo.offereeAccepted ? (
           <p>Accepted!</p>
         ) : (
@@ -57,7 +63,7 @@ function PendingRecdCard(props) {
         )}
 
         
-        
+       
       </div>
     </>
   );

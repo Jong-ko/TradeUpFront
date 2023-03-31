@@ -30,161 +30,168 @@ function Navbar() {
   };
 
   return (
-    <div className="fixed shadow-md  z-50 w-full px-5 flex justify-between items-center bg-slate-900 p-2">
-      <ul className=" flex space-y-4  space-x-5 ">
-        <li>
-          <a href="/profile" class="flex items-center">
-            <img
-              src="/barterlogo.jpg"
-              className="  h-14 rounded-full"
-              alt="Barter House Logo"
-            />
-          </a>
-        </li>
-        <li>
-          <NavLink to="/profile">
-            <a className="text-stone-100 hover:text-sky-300">Profile</a>
-          </NavLink>
-        </li>
+    <div className="p-0 m-0">
+      <div className="fixed shadow-md  z-50 w-full px-5 flex justify-between items-center bg-slate-900 p-2">
+        <ul className=" flex space-y-4 xs:space-x-1 xl:space-x-2 md:space-x-2 ls:space-x-2 ">
+          <li>
+            <a href="/profile" class="flex items-center p-1">
+              <img
+                src="/barterlogo.jpg"
+                className="  h-14 rounded-full"
+                alt="Barter House Logo"
+              />
+            </a>
+          </li>
+          <li>
+            <NavLink to="/profile">
+              <a className="text-stone-100 hover:text-sky-300">Profile</a>
+            </NavLink>
+          </li>
 
-        <li>
-          <NavLink to="/offers">
-            <a className="text-stone-100 hover:text-sky-300">Offers</a>
-          </NavLink>
-        </li>
+          <li>
+            <NavLink to="/offers">
+              <a className="text-stone-100 hover:text-sky-300">Offers</a>
+            </NavLink>
+          </li>
 
-        <div>
-          <Menu as="div" className="relative inline-block text-left ">
-            <div>
-              <Menu.Button className="text-stone-100 hover:text-sky-300">
-                Categories
-              </Menu.Button>
-            </div>
+          <div>
+            <Menu as="div" className="relative inline-block text-left ">
+              <div>
+                <Menu.Button className="text-stone-100 hover:text-sky-300">
+                  Categories
+                </Menu.Button>
+              </div>
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items className="absolute right-5 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:border-gray-700 dark:text-zinc-200 ">
-                <div className="py-1">
-                  <NavLink to="/BrowseClothingandAccessories">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Clothing and Accessories
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-5 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-gray-800 dark:border-gray-700 dark:text-zinc-200 ">
+                  <div className="py-1">
+                    <NavLink to="/BrowseClothingandAccessories">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Clothing and Accessories
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
 
-                  <NavLink to="/BrowseElectronicsandGadgets">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Electronics and Gadgets
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
+                    <NavLink to="/BrowseElectronicsandGadgets">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Electronics and Gadgets
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
 
-                  <NavLink to="/BrowseHomeandFurniture">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Home and Furniture
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
+                    <NavLink to="/BrowseHomeandFurniture">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Home and Furniture
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
 
-                  <NavLink to="/BrowseHealthandBeauty">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Health and Beauty
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
+                    <NavLink to="/BrowseHealthandBeauty">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Health and Beauty
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
 
-                  <NavLink to="/BrowseSportsandOutdoors">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Sports and Outdoors
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
+                    <NavLink to="/BrowseSportsandOutdoors">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Sports and Outdoors
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
 
-                  <NavLink to="/BrowseToysandGames">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <a
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                              : "text-gray-700  dark:text-slate-200",
-                            "block px-4 py-2 text-sm"
-                          )}
-                        >
-                          Toys and Games
-                        </a>
-                      )}
-                    </Menu.Item>
-                  </NavLink>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
+                    <NavLink to="/BrowseToysandGames">
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                                : "text-gray-700  dark:text-slate-200",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Toys and Games
+                          </a>
+                        )}
+                      </Menu.Item>
+                    </NavLink>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </div>
+          <li>
+            <NavLink to="/chat">
+              <a className="text-stone-100 hover:text-sky-300">Chat</a>
+            </NavLink>
+          </li>
 
-        <li className="absolute top-2 right-6 ">
-          <NavLink to="/" onClick={accountLogOut}>
-            <a className=" text-stone-100 hover:text-sky-300">Logout</a>
-          </NavLink>
-        </li>
-      </ul>
+          <li className="absolute xs:right-2 top-2 lg:right-6  md:right-6 ">
+            <NavLink to="/" onClick={accountLogOut}>
+              <a className=" text-stone-100 hover:text-sky-300">Logout</a>
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

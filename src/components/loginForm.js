@@ -36,10 +36,10 @@ export const Login = () => {
           dispatch(logIn());
           dispatch(setUserAccount(email));
           dispatch(setUserId(data.userID));
-          window.localStorage.setItem('localIsLoggedIn', true);
-          window.localStorage.setItem('localUserAccount', email);
-          window.localStorage.setItem('localUserID', data.userID);
-          console.log(window.localStorage.getItem('localUserAccount'));
+          window.localStorage.setItem("localIsLoggedIn", true);
+          window.localStorage.setItem("localUserAccount", email);
+          window.localStorage.setItem("localUserID", data.userID);
+          console.log(window.localStorage.getItem("localUserAccount"));
           navigate("/profile");
         } else {
           setErrorVisible(true);
@@ -50,7 +50,7 @@ export const Login = () => {
   return (
     <div>
       <LoginNav />
-      <div className="w-full max-w-xs m-auto py-10 ">
+      <div className="w-full max-w-xs m-auto py-10 sm:pt-32 xs:pt-40 lg:pt-56 ">
         <form
           onSubmit={AccountLogin}
           required

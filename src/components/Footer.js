@@ -1,8 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 function Footer() {
   return (
-    <div>
+    <div className="h-10 ">
       <footer class="bg-white dark:bg-gray-900">
         <div class="mx-auto w-full container p-4 sm:p-6">
           <div class="md:flex md:justify-between">
@@ -49,14 +51,14 @@ function Footer() {
                 </h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                   <li class="mb-4">
-                    <a href="#" class="hover:underline">
-                      Privacy Policy
-                    </a>
+                    <NavLink to="/privacy">
+                      <a class="hover:underline">Privacy Policy</a>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="#" class="hover:underline">
-                      Terms &amp; Conditions
-                    </a>
+                    <NavLink to="/terms">
+                      <a class="hover:underline">Terms &amp; Conditions</a>
+                    </NavLink>
                   </li>
                 </ul>
               </div>

@@ -48,7 +48,7 @@ export const CreateAccount = () => {
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
       <LoginNav />
-      <div className="w-full max-w-xs m-auto pt-10 ">
+      <div className="w-full max-w-xs m-auto pt-10 sm:pt-32 xs:pt-40 lg:pt-56 ">
         <form
           onSubmit={AccountCreate}
           required

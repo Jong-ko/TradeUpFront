@@ -4,15 +4,15 @@ import OfferorApproveButton from "./OfferorApproveButton";
 import CancelTradeButton from "./CancelTradeButton";
 
 function PendingMadeCard(props) {
-  const [fetchedOfferinfo, setFetchedOfferInfo] = useState([{},{}]);
+  const [fetchedOfferinfo, setFetchedOfferInfo] = useState([{}, {}]);
 
   useEffect(() => {
     fetchOfferInfo();
-  },[]);
+  }, []);
 
-//fetch to grab user information via offerorID
+  //fetch to grab user information via offerorID
   const fetchOfferInfo = () => {
-    const url = '/offerinfo';
+    const url = "/offerinfo";
     axios
       .post(url, {
         offerorID: props.offerInfo.offereeID,
@@ -29,6 +29,7 @@ function PendingMadeCard(props) {
   return (
     <>
       {/* <div>{offer}</div> */}
+
       <div className="flex flex-col items-center" key={props.offerInfo.id}>
       {fetchedOfferinfo[0].image && <img
           src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
@@ -53,6 +54,7 @@ function PendingMadeCard(props) {
           </>
         )}
         
+
       </div>
     </>
   );
