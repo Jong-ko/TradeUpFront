@@ -28,6 +28,7 @@ function OfferCard(props) {
   return (
     <>
       {/* <div>{offer}</div> */}
+
       <div className="flex justify-items-center px-3 m-auto">
         <div
           className="rounded-lg pt-4 py-4 pb-4 m-auto max-w-xs shadow-2xl  bg-indigo-100"
@@ -45,6 +46,7 @@ function OfferCard(props) {
           <p>{fetchedOfferinfo[0].category}</p>
           <p></p>
         </div>
+
       </div>
     </>
   );

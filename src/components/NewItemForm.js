@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   setSwaps,
+  setPending,
+  selectIsPending,
   selectUserAccount,
   selectAllItems,
 } from "../features/swapSlice";
@@ -10,11 +12,13 @@ function NewItemForm() {
   const dispatch = useDispatch();
   const myUser = useSelector(selectUserAccount);
   const myItem = useSelector(selectAllItems);
+  const isPending = useSelector(selectIsPending);
 
   const [selectedImage, setSelectedImage] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Clothing and Accessories");
   const [name, setName] = useState("");
+  const [buttonDisabled, setButtonDisabled] = useState("");
 
   const newImage = async () => {
     console.log(myItem);
@@ -58,6 +62,20 @@ function NewItemForm() {
       .then((json) => {
         dispatch(setSwaps(json));
         window.localStorage.setItem("localMyItems", JSON.stringify(json));
+      });
+    
+    await fetch("/check-pending")
+      .then((response) => response.json())
+      .then((json) => {
+        if(json) {
+          console.log("Pending trades exist");
+          dispatch(setPending);
+          setButtonDisabled("disabled");
+          window.localStorage.setItem('localIsPending', true);
+        } else {
+          console.log("No pending trade exists");
+          window.localStorage.setItem('localIsPending', false);
+        }
       });
   };
 
@@ -150,6 +168,7 @@ function NewItemForm() {
           <form>
             <input
               required
+              disabled={buttonDisabled}
               maxLength="100"
               type="text"
               name="swapName"
@@ -169,6 +188,7 @@ function NewItemForm() {
           <div className="mx-10 py-5">
             <textarea
               required
+              disabled={buttonDisabled}
               maxLength="500"
               type="text"
               name="swapDescription"
@@ -191,6 +211,7 @@ function NewItemForm() {
               >
                 <input
                   required
+                  disabled={buttonDisabled}
                   type="file"
                   name="image"
                   className="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded cursor-pointer bg-gray-50"
@@ -258,7 +279,8 @@ function NewItemForm() {
               {myItem[0] && (
                 <button
                   className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2"
-                  onClick={removeItem}
+                  disabled={buttonDisabled}
+                  onClick={!isPending && removeItem}
                 >
                   Remove Item
                 </button>

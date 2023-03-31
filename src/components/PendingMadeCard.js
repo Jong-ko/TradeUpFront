@@ -15,8 +15,8 @@ function PendingMadeCard(props) {
     const url = "/offerinfo";
     axios
       .post(url, {
-        offerorID: props.offerInfo.offerorID,
-        itemID: props.offerInfo.offerorItemID,
+        offerorID: props.offerInfo.offereeID,
+        itemID: props.offerInfo.itemID,
       })
       .then((response) => {
         setFetchedOfferInfo(response.data);
@@ -24,33 +24,37 @@ function PendingMadeCard(props) {
       .catch((error) => console.error(error));
   };
 
+  console.log(props.offerInfo)
+
   return (
     <>
       {/* <div>{offer}</div> */}
-      <div
-        className="flex justify-items-center px-3 m-auto"
-        key={props.offerInfo.id}
-      >
-        {fetchedOfferinfo[0].image && (
-          <img
-            src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
-            alt="not found"
-            width={"250px"}
-          />
-        )}
+
+      <div className="flex flex-col items-center" key={props.offerInfo.id}>
+      {fetchedOfferinfo[0].image && <img
+          src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
+          alt="not found"
+          width={"250px"}
+        />}
         <p>{fetchedOfferinfo[1].firstName}</p>
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
-        <p></p>
-        <OfferorApproveButton
-          offerorID={props.offerInfo.offerorID}
-          offereeID={props.offerInfo.offereeID}
-          itemID={props.offerInfo.itemID}
-          offerorItemID={props.offerInfo.offerorItemID}
-          offerorAccepted={props.offerInfo.offerorAccepted}
-        />
-        <br></br>
-        <CancelTradeButton tradeID={props.offerInfo.Id} />
+        {props.offerInfo.offerorAccepted ? (
+          <p>Accepted!</p>
+        ) : (
+            <>
+          <OfferorApproveButton
+            offerorID={props.offerInfo.offerorID}
+            offereeID={props.offerInfo.offereeID}
+            itemID={props.offerInfo.itemID}
+            offerorItemID={props.offerInfo.offerorItemID}
+          />
+          <br></br>
+          <CancelTradeButton tradeID={props.offerInfo.id} />
+          </>
+        )}
+        
+
       </div>
     </>
   );
