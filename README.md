@@ -19,11 +19,11 @@ Then they will be able to browse other user's items by catagory and offer trades
 
 ## MVP
 
-Registration, log in, and logout with authentication
-Adding a item with image to users account
-Allow users to browse other users items and send offers
-A page where users can see sent and received offers as well as ongoing trades
-Have items switch on users account when trades are completed
++ Registration, log in, and logout with authentication
++ Adding a item with image to users account
++ Allow users to browse other users items and send offers
++ A page where users can see sent and received offers as well as ongoing trades
++ Have items switch on users account when trades are completed
 
 ## Completed Stretch Goals
 
