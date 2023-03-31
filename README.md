@@ -31,10 +31,10 @@ Have items switch on users account when trades are completed
 ## Contributors
 
 ### Thomas Lee 
-PM/Scrum and Developer
+PM/Scrum and Developer [Portfolio]() [GitHub](https://github.com/0xkianu/)
 
 ### Kristina Song 
-Designor and Developer
+Designor and Developer [Portfolio]() [GitHub](https://github.com/Jong-ko/)
 
 ### Jeremy Ongko 
-Technical Writer and Developer
+Technical Writer and Developer [Portfolio]() [GitHub](https://github.com/knsong1/)
