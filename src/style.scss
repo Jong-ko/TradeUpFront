@@ -16,6 +16,7 @@
 
 .formContainer {
   background-color: #a7bcff;
+  background-color: #7b96ec;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -88,7 +89,6 @@
 }
 
 .home {
-  background-color: #a7bcff;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -203,6 +203,7 @@
     }
     .chat {
       flex: 2;
+      background-color: #c2cef5;
 
       .chatInfo {
         height: 50px;

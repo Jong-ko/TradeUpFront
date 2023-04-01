@@ -33,6 +33,7 @@ export const CreateAccount = () => {
 
       await setDoc(doc(db, "users", res.user.uid), {
         uid: res.user.uid,
+        email,
         firstName,
         lastName,
         email,

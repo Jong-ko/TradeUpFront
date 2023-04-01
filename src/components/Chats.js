@@ -13,6 +13,7 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        console.log(doc.data(), "doc data please");
         setChats(doc.data());
       });
 
@@ -24,8 +25,8 @@ const Chats = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
 
-  const handleSelect = (u) => {
-    dispatch({ type: "CHANGE_USER", payload: u });
+  const handleSelect = (u, id) => {
+    dispatch({ type: "CHANGE_USER", payload: { userId: id, chatId: u } });
   };
 
   return (
@@ -36,12 +37,12 @@ const Chats = () => {
           <div
             className="userChat"
             key={chat[0]}
-            onClick={() => handleSelect(chat[1].userInfo)}
+            onClick={() => handleSelect(chat[0], currentUser.uid)}
           >
             {console.log(chat, "chat info")}
             <div className=" userChatInfo">
               <span className=" text-xl font-medium">
-                {chat[1].userInfo?.firstName}
+                {chat[1].userInfo?.email}
               </span>
               <p className=" text-xl text-slate-200">
                 {chat[1].lastMessage?.text}

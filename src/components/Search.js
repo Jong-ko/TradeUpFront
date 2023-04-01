@@ -22,10 +22,7 @@ const Search = () => {
   console.log(currentUser);
 
   const handleSearch = async () => {
-    const q = query(
-      collection(db, "users"),
-      where("firstName", "==", username)
-    );
+    const q = query(collection(db, "users"), where("email", "==", username));
 
     try {
       const querySnapshot = await getDocs(q);
@@ -63,7 +60,7 @@ const Search = () => {
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
-            firstName: user.firstName,
+            email: user.email,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
@@ -71,7 +68,7 @@ const Search = () => {
         await updateDoc(doc(db, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
-            firstName: currentUser.firstName,
+            email: currentUser.email,
           },
           [combinedId + ".date"]: serverTimestamp(),
         });
@@ -100,7 +97,7 @@ const Search = () => {
         <div className="rounded-md " onClick={handleSelect}>
           <div className=" items-center flex justify-center">
             <div className=" w-32 rounded-md m-5 text-zinc-800 bg-sky-100 text-center ">
-              <span>{user.firstName}</span>
+              <span>{user.email}</span>
             </div>
           </div>
         </div>
