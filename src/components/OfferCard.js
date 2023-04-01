@@ -14,7 +14,7 @@ function OfferCard(props) {
     const url = "/offerinfo";
     axios
       .post(url, {
-        offerorID: props.offerInfo.offerorID,
+        offerorID: props.offerInfo.offereeID,
         itemID: props.offerInfo.itemID,
       })
       .then((response) => {
