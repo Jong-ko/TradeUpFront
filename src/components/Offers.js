@@ -120,9 +120,13 @@ function Offers() {
           <div className="pt-32 pb-10 text-center  max-w-full  dark:bg-gray-800  dark:text-white">
             Pending
           </div>
-          <div className="grid grid-cols-2">
-            <>{pendingMadeArray}</>
-            <>{pendingRecdArray}</>
+          <div className="">
+            <div className=" ">
+              <>{pendingMadeArray}</>
+            </div>
+            <div className="">
+              <>{pendingRecdArray}</>
+            </div>
           </div>
         </div>
         <div>

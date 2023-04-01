@@ -36,9 +36,10 @@ function OfferRecdCard(props) {
         >
           {fetchedOfferinfo[0].image && (
             <img
-              src={"http://3.144.92.63:3001/images/" + fetchedOfferinfo[0].image}
+              src={
+                "http://3.144.92.63:3001/images/" + fetchedOfferinfo[0].image
+              }
               alt="not found"
-              width={"250px"}
             />
           )}
           <p>{fetchedOfferinfo[1].firstName}</p>
