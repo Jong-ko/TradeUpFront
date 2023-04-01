@@ -48,12 +48,6 @@ export default function PrivacyPolicy() {
                   >
                     firebase
                   </a>{" "}
-                  Please read{" "}
-                  <a className=" cursor-pointer underline">Privacy Policy</a>{" "}
-                  and{" "}
-                  <a className=" cursor-pointer underline">
-                    Terms & Conditions
-                  </a>
                   <br></br>
                   Good luck trading!
                 </p>

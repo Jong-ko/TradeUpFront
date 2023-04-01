@@ -5,6 +5,7 @@ import OfferCard from "./OfferCard";
 import OfferRecdCard from "./OfferRecdCard";
 import PendingRecdCard from "./PendingRecdCard";
 import PendingMadeCard from "./PendingMadeCard";
+import Footer from "./Footer";
 
 const url = "/fetchoffersmade/";
 const urlRecd = "/fetchoffersrecd/";
@@ -114,7 +115,7 @@ function Offers() {
   return (
     <>
       <Navbar />
-      <div className=" h-screen grid grid-cols-3 sm:grid-cols-3 lg:m-auto sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8">
+      <div className=" h-screen grid grid-cols-3">
         <div>
           <div className="pt-32 pb-10 text-center  max-w-full  dark:bg-gray-800  dark:text-white">
             Pending
@@ -137,6 +138,7 @@ function Offers() {
           <>{offerRecdArray}</>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

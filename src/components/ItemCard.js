@@ -1,24 +1,22 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import TradeButton from "./TradeButton";
 import { useSelector } from "react-redux";
 import { selectAllItems } from "../features/swapSlice";
 
 function ItemCard(props) {
-
   let myItem = [];
   let isPending = "";
-  
-  if((window.localStorage.getItem('localMyItems')) !== null) {
-    myItem = window.localStorage.getItem('localMyItems') ;
-  }
-  if((window.localStorage.getItem('localIsPending')) !== null) {
-    isPending = (window.localStorage.getItem('localIsPending')==='true');
-  }
 
+  if (window.localStorage.getItem("localMyItems") !== null) {
+    myItem = window.localStorage.getItem("localMyItems");
+  }
+  if (window.localStorage.getItem("localIsPending") !== null) {
+    isPending = window.localStorage.getItem("localIsPending") === "true";
+  }
 
   return (
     <>
-      <div className="">
+      <div>
         <div
           className="m-auto text-center object-center max-w-xs no-underline hover:underline "
           key={props.itemInfo.id}
@@ -28,16 +26,19 @@ function ItemCard(props) {
               <img
                 src={"http://localhost:3001/images/" + props.itemInfo.image}
                 alt="not found"
-                className="cursor-pointer rounded-lg bg-white p-1 dark:border-neutral-700 w-full h-48 object-cover"
+                className="cursor-pointer rounded-lg bg-white p-1 dark:border-neutral-700 w-full gap-1  object-cover"
               />
             </div>
           </div>
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
 
-          {((myItem[0]) && (!isPending)) ? <TradeButton itemInfo={props.itemInfo} /> : ""}
+          {myItem[0] && !isPending ? (
+            <TradeButton itemInfo={props.itemInfo} />
+          ) : (
+            ""
+          )}
           {/* <TradeButton itemInfo={props.itemInfo} /> */}
-
         </div>
       </div>
     </>
