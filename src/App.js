@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div
-      className=" h-screen"
+      className=" h-screen "
       style={{
         backgroundImage: `url(
           https://www.toptal.com/designers/subtlepatterns/uploads/cubes.png

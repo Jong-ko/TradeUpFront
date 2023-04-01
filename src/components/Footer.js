@@ -51,14 +51,14 @@ function Footer() {
                 </h2>
                 <ul class="text-gray-600 dark:text-gray-400">
                   <li class="mb-4">
-                    <NavLink to="/privacy">
-                      <a class="hover:underline">Privacy Policy</a>
-                    </NavLink>
+                    <a href="/privacy" class="hover:underline">
+                      Privacy Policy
+                    </a>
                   </li>
                   <li>
-                    <NavLink to="/terms">
-                      <a class="hover:underline">Terms &amp; Conditions</a>
-                    </NavLink>
+                    <a href="/terms" class="hover:underline">
+                      Terms &amp; Conditions
+                    </a>
                   </li>
                 </ul>
               </div>

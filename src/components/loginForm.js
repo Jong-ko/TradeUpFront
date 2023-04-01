@@ -50,7 +50,7 @@ export const Login = () => {
   return (
     <div>
       <LoginNav />
-      <div className="w-full max-w-xs m-auto py-10 sm:pt-32 xs:pt-40 lg:pt-56 ">
+      <div className="w-full h-screen max-w-xs m-auto py-10 sm:pt-32 xs:pt-40 lg:pt-56 ">
         <form
           onSubmit={AccountLogin}
           required

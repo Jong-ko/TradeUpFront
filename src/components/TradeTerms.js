@@ -50,12 +50,15 @@ export default function TradeTerms() {
                   >
                     firebase
                   </a>{" "}
-                  Please read{" "}
-                  <a className=" cursor-pointer underline">Privacy Policy</a>{" "}
-                  and{" "}
-                  <a className=" cursor-pointer underline">
-                    Terms & Conditions
-                  </a>
+                  <p>
+                    Here is as well the Data Privacy FAQs of{" "}
+                    <a
+                      className=" cursor-pointer underline"
+                      href="https://aws.amazon.com/compliance/data-privacy-faq/"
+                    >
+                      AWS
+                    </a>
+                  </p>
                   <br></br>
                   Good luck trading!
                 </p>

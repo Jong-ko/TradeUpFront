@@ -49,9 +49,11 @@ export default function BarterRules() {
                 <p>
                   You are also able to chat with other users to finalize the
                   trade! Please read{" "}
-                  <a className=" cursor-pointer underline">Privacy Policy</a>{" "}
-                  and{" "}
-                  <a className=" cursor-pointer underline">
+                  <a href="/privacy" className=" cursor-pointer underline">
+                    Privacy Policy
+                  </a>
+                  and
+                  <a href="/terms" className=" cursor-pointer underline">
                     Terms & Conditions
                   </a>
                   <br></br>

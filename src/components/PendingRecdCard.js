@@ -27,14 +27,13 @@ function PendingRecdCard(props) {
   console.log(`offeree ${props.offerInfo.offereeAccepted}`);
 
   return (
-    <>
+    <div className="pt-10">
       {/* <div>{offer}</div> */}
 
       <div
-        className="flex justify-items-center px-3 m-auto"
+        className="rounded-lg pt-4 m-auto shadow-2xl px-3 bg-indigo-100"
         key={props.offerInfo.id}
       >
-
         {fetchedOfferinfo[0].image && (
           <img
             src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
@@ -50,22 +49,19 @@ function PendingRecdCard(props) {
         {props.offerInfo.offereeAccepted ? (
           <p>Accepted!</p>
         ) : (
-            <>
-          <OffereeApproveButton
-            offerorID={props.offerInfo.offerorID}
-            offereeID={props.offerInfo.offereeID}
-            itemID={props.offerInfo.itemID}
-            offerorItemID={props.offerInfo.offerorItemID}
-          />
-          <br></br>
-          <CancelTradeButton tradeID={props.offerInfo.id} />
+          <>
+            <OffereeApproveButton
+              offerorID={props.offerInfo.offerorID}
+              offereeID={props.offerInfo.offereeID}
+              itemID={props.offerInfo.itemID}
+              offerorItemID={props.offerInfo.offerorItemID}
+            />
+            <br></br>
+            <CancelTradeButton tradeID={props.offerInfo.id} />
           </>
         )}
-
-        
-       
       </div>
-    </>
+    </div>
   );
 }
 

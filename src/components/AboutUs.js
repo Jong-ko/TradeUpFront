@@ -9,7 +9,7 @@ function AboutUs() {
       <LoginNav />
 
       <div>
-        <div className="pb-60  place-items-center sm:pt-32 xs:pt-40 lg:pt-56 flex flex-wrap ">
+        <div className="pb-10  place-items-center sm:pt-32 xs:pt-40 lg:pt-56 lg:flex md:flex-none sm:flex xs:flex-none ">
           <div className="card xs:m-5 sm:m-5 md:m-5 lg:m-auto mx-auto  bg-white flex flex-col items-center  p-4 shadow-lg rounded-2xl max-w-md">
             <div class="profile mx-auto sm:p-5 xs:m-5  rounded-full py-2">
               <img
@@ -88,7 +88,7 @@ function AboutUs() {
                 things with his hands. Whether it is something tangible or
                 digital, and in the process, creating connections and
                 relationships. Outside of work he enjoys finding new music,
-                snowboarding, and cooking.🧑‍💻
+                snowboarding, and cooking.
               </p>
             </div>
             <div className="flex pt-5 m-5 ">
