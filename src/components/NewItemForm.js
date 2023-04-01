@@ -259,7 +259,7 @@ function NewItemForm() {
                 alt="not found"
                 width={"250px"}
                 src={
-                  myItem[0] && "http://localhost:3001/images/" + myItem[0].image
+                  myItem[0] && "http://3.144.92.63:3001/images/" + myItem[0].image
                 }
               />
             )}
