@@ -36,7 +36,7 @@ function PendingRecdCard(props) {
         >
           {fetchedOfferinfo[0].image && (
             <img
-              src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
+              src={"http://3.138.123.221:3001/images/" + fetchedOfferinfo[0].image}
               alt="not found"
               width={"250px"}
             />
@@ -53,7 +53,7 @@ function PendingRecdCard(props) {
             {fetchedOfferinfo[0].image && (
               <img
                 src={
-                  "http://3.144.92.63:3001/images/" + fetchedOfferinfo[0].image
+                  "http://3.138.123.221:3001/images/" + fetchedOfferinfo[0].image
                 }
                 alt="not found"
                 width={"250px"}

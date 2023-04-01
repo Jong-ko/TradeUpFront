@@ -258,7 +258,7 @@ function NewItemForm() {
                 width={"250px"}
                 src={
                   myItem[0] &&
-                  "http://3.144.92.63:3001/images/" + myItem[0].image
+                  "http://3.138.123.221:3001/images/" + myItem[0].image
                 }
               />
             )}

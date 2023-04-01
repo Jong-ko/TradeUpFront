@@ -34,7 +34,7 @@ function PendingMadeCard(props) {
       >
         {fetchedOfferinfo[0].image && (
           <img
-            src={"http://3.144.92.63:3001/images/" + fetchedOfferinfo[0].image}
+            src={"http://3.138.123.221:3001/images/" + fetchedOfferinfo[0].image}
             alt="not found"
             className="object-center p-5 m-5"
           />
