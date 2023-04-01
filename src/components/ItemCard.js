@@ -33,7 +33,7 @@ function ItemCard(props) {
           <p>{props.itemInfo.description}</p>
           <p>{props.itemInfo.category}</p>
 
-          {(myItem !== '[]') && !isPending ? (
+          {myItem[2] && !isPending ? (
             <TradeButton itemInfo={props.itemInfo} />
           ) : (
             ""
