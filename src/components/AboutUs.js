@@ -54,9 +54,9 @@ function AboutUs() {
                 ability to take an idea and have it come to life through
                 collaboration, trial and error, and research. These are all
                 qualities she would like to see continued in her future job.
-                Kristina is from Chicago and live with my small mixed lab
-                dachshund baby and husband. She likes sewing and creating
-                children's books in her free time!
+                Kristina is from Chicago and live with her small mixed lab
+                dachshund and husband. She likes sewing and creating children's
+                books in her free time!
               </p>
             </div>
             <div className="flex pt-5 m-5 ">
@@ -94,7 +94,7 @@ function AboutUs() {
             <div className="flex pt-5 m-5 ">
               <SocialIcon
                 className="m-2"
-                url="https://www.linkedin.com/in/thomas-lee-43483829/"
+                url="https://www.linkedin.com/in/jeremyongko/"
               />
               <SocialIcon className="m-2" url="https://github.com/Jong-ko" />
             </div>

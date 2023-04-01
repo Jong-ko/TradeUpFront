@@ -24,8 +24,6 @@ function PendingMadeCard(props) {
       .catch((error) => console.error(error));
   };
 
-  console.log(props.offerInfo);
-
   return (
     <>
       {/* <div>{offer}</div> */}

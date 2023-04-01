@@ -17,8 +17,6 @@ function Navbar() {
     return classes.filter(Boolean).join(" ");
   }
 
-  // console.log(userAccount);
-
   const accountLogOut = async () => {
     // Firebase signout
     try {

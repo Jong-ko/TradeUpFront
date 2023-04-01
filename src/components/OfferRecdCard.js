@@ -23,8 +23,6 @@ function OfferRecdCard(props) {
       .catch((error) => console.error(error));
   };
 
-  console.log(props);
-
   return (
     <div className="h-auto">
       {/* <div>{offer}</div> */}

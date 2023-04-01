@@ -21,7 +21,6 @@ function Offers() {
   const [pendingRecd, setPendingRecd] = useState([]);
 
   const offerArray = offersMadeList.map((list) => {
-    // console.log(list);
     return (
       <React.Fragment>
         <OfferCard offerInfo={list} key={list.id} />
@@ -30,7 +29,6 @@ function Offers() {
   });
 
   const offerRecdArray = offersRecdList.map((list) => {
-    // console.log(list);
     return (
       <React.Fragment>
         <OfferRecdCard offerInfo={list} key={list.id} />
@@ -39,7 +37,6 @@ function Offers() {
   });
 
   const pendingMadeArray = pendingMade.map((list) => {
-    // console.log(list);
     return (
       <React.Fragment>
         <PendingMadeCard offerInfo={list} key={list.id} />
@@ -48,7 +45,6 @@ function Offers() {
   });
 
   const pendingRecdArray = pendingRecd.map((list) => {
-    // console.log(list);
     return (
       <React.Fragment>
         <PendingRecdCard offerInfo={list} key={list.id} />

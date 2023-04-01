@@ -43,7 +43,6 @@ function ItemBrowsePage(props) {
   };
 
   const itemArray = currentItems.map((list) => {
-    // console.log(list.id)
     return (
       <React.Fragment key={list.id}>
         <ItemCard itemInfo={list} key={list.id} />

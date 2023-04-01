@@ -12,7 +12,7 @@ function OffereeApproveButton(props) {
       })
       .then((response) => {
         console.log(response);
-        //this.forceUpdate();
+
         window.location.reload(false);
       })
       .catch((error) => console.error(error));

@@ -8,10 +8,8 @@ export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
   const value = { currentUser };
-  console.log("so empty", value);
 
   useEffect(() => {
-    console.log("greg go", auth);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       console.log(user);

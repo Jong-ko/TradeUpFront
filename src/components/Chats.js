@@ -13,7 +13,6 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        console.log(doc.data(), "doc data please");
         setChats(doc.data());
       });
 
@@ -39,7 +38,6 @@ const Chats = () => {
             key={chat[0]}
             onClick={() => handleSelect(chat[0], currentUser.uid)}
           >
-            {console.log(chat, "chat info")}
             <div className=" userChatInfo">
               <span className=" text-xl font-medium">
                 {chat[1].userInfo?.email}

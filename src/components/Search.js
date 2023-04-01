@@ -19,7 +19,6 @@ const Search = () => {
   const [err, setErr] = useState(false);
 
   const currentUser = useFirebaseAuth();
-  console.log(currentUser);
 
   const handleSearch = async () => {
     const q = query(collection(db, "users"), where("email", "==", username));

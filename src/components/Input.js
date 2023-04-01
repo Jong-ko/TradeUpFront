@@ -17,9 +17,8 @@ const Input = () => {
   const [img, setImg] = useState(null);
 
   const currentUser = useFirebaseAuth();
-  console.log(currentUser);
+
   const { data } = useContext(ChatContext);
-  console.log(data);
 
   const handleSend = async () => {
     if (img) {

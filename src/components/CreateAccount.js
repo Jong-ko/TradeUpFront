@@ -18,8 +18,6 @@ export const CreateAccount = () => {
   const dispatch = useDispatch();
 
   const AccountCreate = async (event) => {
-    console.log("in create account");
-
     event.preventDefault();
 
     try {
