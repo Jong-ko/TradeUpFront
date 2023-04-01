@@ -3,6 +3,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import LoginNav from "./LoginNav";
 import { logIn, setUserAccount } from "../features/swapSlice";
 import { useDispatch } from "react-redux";
+import { db, auth } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export const CreateAccount = () => {
   const [email, setEmail] = useState("");
@@ -15,34 +18,54 @@ export const CreateAccount = () => {
   const dispatch = useDispatch();
 
   const AccountCreate = async (event) => {
-    console.log("in create account");
     event.preventDefault();
-    await fetch("/create_account", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-        firstName: firstName,
-        lastName: lastName,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          console.log("Success:", data);
-          setErrorVisible(false);
-          dispatch(logIn());
-          dispatch(setUserAccount(email));
-          setEmail("");
-          setPassword("");
-          navigate("/");
-        } else {
-          setErrorVisible(true);
-        }
+
+    try {
+      const res = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+        firstName,
+        lastName
+      );
+
+      await setDoc(doc(db, "users", res.user.uid), {
+        uid: res.user.uid,
+        email,
+        firstName,
+        lastName,
+        email,
       });
+      await setDoc(doc(db, "userChats", res.user.uid), {});
+      const response = await fetch("/create_account", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+        }),
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("Success:", data);
+        setErrorVisible(false);
+        dispatch(logIn());
+        dispatch(setUserAccount(email));
+        setEmail("");
+        setPassword("");
+        navigate("/");
+      } else {
+        setErrorVisible(true);
+      }
+    } catch (error) {
+      console.error(error);
+      setErrorVisible(true);
+    }
   };
 
   return (

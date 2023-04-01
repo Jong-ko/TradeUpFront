@@ -11,7 +11,7 @@ function DisplayItem({ swap, removeItemById }) {
   return (
     <div className="pt-20">
       <div className="rounded-lg pt-4 m-auto max-w-xs shadow-2xl  bg-indigo-100">
-        <image src={swap.image} alt="not found" width={"250px"} />
+        <image src={swap.image} alt="not found" />
         <p>{swap ? swap.description : "NOT SET"}</p>
         <p>{swap ? swap.category : "NOT SET"}</p>
       </div>

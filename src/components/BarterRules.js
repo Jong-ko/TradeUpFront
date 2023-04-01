@@ -49,11 +49,9 @@ export default function BarterRules() {
                 <p>
                   You are also able to chat with other users to finalize the
                   trade! Please read{" "}
-                  <a href="/privacy" className=" cursor-pointer underline">
-                    Privacy Policy
-                  </a>
-                  and
-                  <a href="/terms" className=" cursor-pointer underline">
+                  <a className=" cursor-pointer underline">Privacy Policy</a>{" "}
+                  and{" "}
+                  <a className=" cursor-pointer underline">
                     Terms & Conditions
                   </a>
                   <br></br>
@@ -63,9 +61,8 @@ export default function BarterRules() {
               <div className="flex pt-5 m-5 ">
                 <SocialIcon
                   className="m-2"
-                  url="https://www.linkedin.com/in/thomas-lee-43483829/"
+                  url="https://github.com/Jong-ko/TradeUpFront"
                 />
-                <SocialIcon className="m-2" url="https://github.com/Jong-ko" />
               </div>
             </div>
           </div>

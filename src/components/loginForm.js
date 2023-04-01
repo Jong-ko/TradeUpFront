@@ -9,6 +9,8 @@ import {
   setUserId,
 } from "../features/swapSlice";
 import LoginNav from "./LoginNav";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,32 +21,35 @@ export const Login = () => {
 
   const AccountLogin = async (event) => {
     event.preventDefault();
-    await fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setErrorVisible(false);
-          dispatch(logIn());
-          dispatch(setUserAccount(email));
-          dispatch(setUserId(data.userID));
-          window.localStorage.setItem("localIsLoggedIn", true);
-          window.localStorage.setItem("localUserAccount", email);
-          window.localStorage.setItem("localUserID", data.userID);
-          console.log(window.localStorage.getItem("localUserAccount"));
-          navigate("/profile");
-        } else {
-          setErrorVisible(true);
-        }
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("Successfully signed into Firebase");
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
       });
+      const data = await response.json();
+      if (data.success) {
+        setErrorVisible(false);
+        dispatch(logIn());
+        dispatch(setUserAccount(email));
+        dispatch(setUserId(data.userID));
+        window.localStorage.setItem("localIsLoggedIn", true);
+        window.localStorage.setItem("localUserAccount", email);
+        window.localStorage.setItem("localUserID", data.userID);
+        navigate("/profile");
+      } else {
+        setErrorVisible(true);
+      }
+    } catch (err) {
+      setErrorVisible(true);
+    }
   };
 
   return (
@@ -114,7 +119,7 @@ export const Login = () => {
           </p>
         )}
         <p className="text-center absolute inset-x-0 bottom-0  text-gray-500 text-xs">
-          &copy;2023 Acme Corp. All rights reserved.
+          &copy;2023 Barter House. All rights reserved.
         </p>
       </div>
     </div>

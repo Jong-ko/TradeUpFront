@@ -43,7 +43,6 @@ function ItemBrowsePage(props) {
   };
 
   const itemArray = currentItems.map((list) => {
-    // console.log(list.id)
     return (
       <React.Fragment key={list.id}>
         <ItemCard itemInfo={list} key={list.id} />
@@ -74,7 +73,7 @@ function ItemBrowsePage(props) {
         {props.catagory}
       </div>
       <div className=" dark:bg-gray-800 dark:border-gray-700 dark:text-teal-50">
-        <div className="grid px-1 grid-cols-2 gap-x-3 gap-y-3 h-auto sm:grid-cols-3 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8 ">
+        <div className="grid px-1 grid-cols-2 gap-x-3 gap-y-3 sm:grid-cols-3 sm:gap-x-6 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xl:gap-x-8 ">
           <>{itemArray}</>
         </div>
 

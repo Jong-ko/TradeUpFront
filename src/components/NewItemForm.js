@@ -21,7 +21,6 @@ function NewItemForm() {
   const [buttonDisabled, setButtonDisabled] = useState("");
 
   const newImage = async () => {
-    console.log(myItem);
     const formData = new FormData();
     formData.append("image", selectedImage);
     formData.append("description", description);
@@ -35,7 +34,6 @@ function NewItemForm() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           dispatch(setSwaps(data));
           window.localStorage.setItem("localMyItems", JSON.stringify(data));
           setSelectedImage("");
@@ -259,7 +257,8 @@ function NewItemForm() {
                 alt="not found"
                 width={"250px"}
                 src={
-                  myItem[0] && "http://3.144.92.63:3001/images/" + myItem[0].image
+                  myItem[0] &&
+                  "http://3.144.92.63:3001/images/" + myItem[0].image
                 }
               />
             )}
