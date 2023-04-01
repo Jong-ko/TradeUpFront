@@ -24,37 +24,41 @@ function PendingMadeCard(props) {
       .catch((error) => console.error(error));
   };
 
-  console.log(props.offerInfo)
+  console.log(props.offerInfo);
 
   return (
     <>
       {/* <div>{offer}</div> */}
 
-      <div className="flex flex-col items-center" key={props.offerInfo.id}>
-      {fetchedOfferinfo[0].image && <img
-          src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
-          alt="not found"
-          width={"250px"}
-        />}
+      <div
+        className="flex flex-col items-center py-10"
+        key={props.offerInfo.id}
+      >
+        {fetchedOfferinfo[0].image && (
+          <img
+            src={"http://localhost:3001/images/" + fetchedOfferinfo[0].image}
+            alt="not found"
+            width={"250px"}
+            className=" object-center p-5 m-5"
+          />
+        )}
         <p>{fetchedOfferinfo[1].firstName}</p>
         <p>{fetchedOfferinfo[0].name}</p>
         <p>{fetchedOfferinfo[0].category}</p>
         {props.offerInfo.offerorAccepted ? (
           <p>Accepted!</p>
         ) : (
-            <>
-          <OfferorApproveButton
-            offerorID={props.offerInfo.offerorID}
-            offereeID={props.offerInfo.offereeID}
-            itemID={props.offerInfo.itemID}
-            offerorItemID={props.offerInfo.offerorItemID}
-          />
-          <br></br>
-          <CancelTradeButton tradeID={props.offerInfo.id} />
+          <>
+            <OfferorApproveButton
+              offerorID={props.offerInfo.offerorID}
+              offereeID={props.offerInfo.offereeID}
+              itemID={props.offerInfo.itemID}
+              offerorItemID={props.offerInfo.offerorItemID}
+            />
+            <br></br>
+            <CancelTradeButton tradeID={props.offerInfo.id} />
           </>
         )}
-        
-
       </div>
     </>
   );

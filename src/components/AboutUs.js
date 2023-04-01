@@ -28,7 +28,7 @@ function AboutUs() {
                 leverage his experience as a full stack developer. A resident of
                 Lawrenceville, GA, Thomas spends his free time with his family.
                 Thomas enjoys hiking and spending time outdoors when he is away
-                from his computer. 🧑‍💻
+                from his computer.
               </p>
             </div>
             <div className="flex pt-5 m-5 ">
@@ -88,7 +88,7 @@ function AboutUs() {
                 things with his hands. Whether it is something tangible or
                 digital, and in the process, creating connections and
                 relationships. Outside of work he enjoys finding new music,
-                snowboarding, and cooking.🧑‍💻
+                snowboarding, and cooking.
               </p>
             </div>
             <div className="flex pt-5 m-5 ">
