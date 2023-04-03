@@ -30,22 +30,6 @@ function PendingRecdCard(props) {
     <div>
       {/* <div>{offer}</div> */}
       <div className="pt-10">
-        <div
-          className="rounded-lg pt-4 m-auto max-w-xs shadow-2xl  bg-indigo-100"
-          key={props.offerInfo.id}
-        >
-          {fetchedOfferinfo[0].image && (
-            <img
-              src={"http://3.138.123.221:3001/images/" + fetchedOfferinfo[0].image}
-              alt="not found"
-              width={"250px"}
-            />
-          )}
-          <p>{fetchedOfferinfo[1].firstName}</p>
-          <p>{fetchedOfferinfo[0].name}</p>
-          <p>{fetchedOfferinfo[0].category}</p>
-          <p></p>
-
           <div
             className="rounded-lg pt-4 m-auto shadow-2xl px-3 bg-indigo-100"
             key={props.offerInfo.id}
@@ -81,7 +65,6 @@ function PendingRecdCard(props) {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
