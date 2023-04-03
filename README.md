@@ -27,7 +27,6 @@ Then they will be able to browse other user's items by catagory and offer trades
 
 ## Completed Stretch Goals
 
-
 ## Contributors
 
 ### Thomas Lee 
