@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Barter House
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What We Set Out To Do
 
-## Available Scripts
+Barter House is a platform we created where users can trade their items. When users visit the website, they are prompted to create an account and add a picture of their item along with some information.
+Then they will be able to browse other user's items by catagory and offer trades with items they want. When a user goes to the Offers page, they can see all of the trade offers they have sent aswell as any offers they may have received. Once an offer has been accepted, the trade will go into pending and both parties will be prompted to approve the trade once they have received the item. Once both parties have approved the trade, the trade will be completed and the items will be switched on the users accounts.
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
++ React
++ Redux
++ Sequelize
++ PostgreSQL
++ TailWindCSS
++ Express
++ Axios
++ FireBase
++ JavaScript
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## MVP
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
++ Registration, log in, and logout with authentication
++ Adding a item with image to users account
++ Allow users to browse other users items and send offers
++ A page where users can see sent and received offers as well as ongoing trades
++ Have items switch on users account when trades are completed
 
-### `npm test`
+## Contributors
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Thomas Lee 
+PM/Scrum and Developer [Portfolio]() [GitHub](https://github.com/0xkianu/)
 
-### `npm run build`
+### Kristina Song 
+Designor and Developer [Portfolio]() [GitHub](https://github.com/Jong-ko/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Jeremy Ongko 
+Technical Writer and Developer [Portfolio]() [GitHub](https://github.com/knsong1/)
