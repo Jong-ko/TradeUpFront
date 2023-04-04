@@ -25,8 +25,6 @@ Then they will be able to browse other user's items by catagory and offer trades
 + A page where users can see sent and received offers as well as ongoing trades
 + Have items switch on users account when trades are completed
 
-## Completed Stretch Goals
-
 ## Contributors
 
 ### Thomas Lee 
